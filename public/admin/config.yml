@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: amerSEO1/roubic-tree-site
+  repo: Efficiency-Boss/roubic-tree-site
   branch: main
   # Production OAuth (shared Cloudflare Worker) is wired in Skill 8; see eb-site-template/INTEGRATIONS.md.
 
