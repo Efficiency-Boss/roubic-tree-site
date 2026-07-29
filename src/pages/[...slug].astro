@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+import Base from '../layouts/Base.astro';
+import BlockRenderer from '../components/BlockRenderer.astro';
+import { deepSubst } from '../lib/site';
+
+// Every non-home page routes from its OWN seo.canonicalPath — the frozen URL.
+// LSP content files are flat (city-oh__service.json) so the CMS stays one level deep,
+// but their canonicalPath is the NESTED /city-oh/service/ (set at extraction), so the
+// public URL nests and no `__` ever reaches a route. index.astro owns "/".
+export const getStaticPaths: GetStaticPaths = async () => {
+  const cols = ['general', 'services', 'locations', 'pages', 'resources', 'blog'] as const;
+  const out: { params: { slug: string }; props: { data: any } }[] = [];
+  for (const name of cols) {
+    const entries = await getCollection(name as any);
+    for (const entry of entries) {
+      const slug = entry.data.seo.canonicalPath.replace(/^\/+|\/+$/g, '');
+      if (!slug) continue;
+      out.push({ params: { slug }, props: { data: entry.data } });
+    }
+  }
+  return out;
+};
+
+const { data } = Astro.props;
+const d = deepSubst(data);
+---
+<Base seo={d.seo} bodyClass={d.bodyClass} jsonld={d.jsonld} activeNav={d.activeNav}>
+  {d.blocks.map((b: any) => <BlockRenderer block={b} />)}
+</Base>

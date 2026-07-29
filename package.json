@@ -1,0 +1,20 @@
+{
+  "name": "roubic-tree-site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Roubic Tree & Landscape — Astro + Netlify + Sveltia CMS. Converted from the Skill 6 approved static site (EB v9, Skill 7).",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "audit": "node scripts/audit.mjs",
+    "verify": "astro build && node scripts/audit.mjs"
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
+    "astro": "5.18.2"
+  }
+}

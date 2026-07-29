@@ -1,0 +1,6 @@
+---
+// Verbatim section HTML (bespoke / prose sections). {{global.*}}-tokenized upstream
+// (deepSubst); the disclosed per-section escape hatch. Reproduces the approved static exactly.
+const { block } = Astro.props;
+---
+<Fragment set:html={block.html} />

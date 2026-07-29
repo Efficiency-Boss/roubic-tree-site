@@ -1,0 +1,14 @@
+---
+// One CTA anchor. Two shapes seen in the static:
+//  - label_span: <a ...><span>Label</span><span><i icon></i></span></a>   (btn-primary / -inv)
+//  - icon_before: <a ...><i icon></i> Label</a>                            (btn-secondary phone)
+const { c } = Astro.props;
+const shine = c.shine ? 'true' : undefined;
+---
+{c.label_span ? (
+  <a class={c.cls} data-shine={shine} href={c.href}><span>{c.label}</span>{c.icon && <span><i class={c.icon}></i></span>}</a>
+) : c.icon_before && c.icon ? (
+  <a class={c.cls} data-shine={shine} href={c.href}><i class={c.icon}></i>{' '}{c.label}</a>
+) : (
+  <a class={c.cls} data-shine={shine} href={c.href}>{c.label}{c.icon && <Fragment>{' '}<i class={c.icon}></i></Fragment>}</a>
+)}

@@ -1,0 +1,192 @@
+backend:
+  name: github
+  repo: Efficiency-Boss/roubic-tree-site
+  branch: main
+  # Production OAuth (shared Cloudflare Worker) is wired in Skill 8; see eb-site-template/INTEGRATIONS.md.
+
+# Uploaded images keep their EXACT filename — slots resolve by name. Do NOT enable
+# raster_image transformation (it renames uploads to .webp). Cap matches the Sveltia upload limit.
+media_folder: "public/images"
+public_folder: "/images"
+media_libraries:
+  default:
+    config:
+      max_file_size: 512000
+
+# Reusable block variants (typed) — discriminated on the `type` key, matching content.config.ts.
+_block_types: &block_types
+  - label: "Raw section (HTML)"
+    name: raw
+    widget: object
+    summary: "Raw section"
+    fields:
+      - { label: "Section HTML", name: html, widget: text }
+  - label: "FAQ"
+    name: faq
+    widget: object
+    fields:
+      - { label: "Section class", name: section_class, widget: string, default: "faq" }
+      - { label: "Accordion group name", name: name, widget: string, default: "faq" }
+      - { label: "Eyebrow", name: eyebrow, widget: string, required: false }
+      - { label: "Heading", name: h2, widget: string }
+      - { label: "Intro", name: intro, widget: string, required: false }
+      - label: "Items"
+        name: items
+        widget: list
+        fields:
+          - { label: "Question", name: q, widget: string }
+          - { label: "Answer (HTML)", name: a_html, widget: text }
+  - label: "CTA Band"
+    name: ctaband
+    widget: object
+    fields:
+      - { label: "Section class", name: section_class, widget: string, default: "cta-band" }
+      - { label: "Section id", name: section_id, widget: string, required: false }
+      - { label: "Heading", name: h2, widget: string }
+      - { label: "Paragraph", name: p, widget: string, required: false }
+      - label: "Buttons"
+        name: ctas
+        widget: list
+        required: false
+        fields:
+          - { label: "Class", name: cls, widget: string, default: "btn btn-primary" }
+          - { label: "Label", name: label, widget: string }
+          - { label: "Href", name: href, widget: string }
+          - { label: "Shine", name: shine, widget: boolean, default: false }
+          - { label: "Icon (fa class)", name: icon, widget: string, required: false }
+
+_seo_fields: &seo_fields
+  - label: "SEO"
+    name: seo
+    widget: object
+    fields:
+      - { label: "Title", name: title, widget: string }
+      - { label: "Meta description", name: description, widget: text }
+      - { label: "Canonical path", name: canonicalPath, widget: string, hint: "e.g. /pepper-pike-oh/tree-removal/" }
+      - { label: "OG type", name: ogType, widget: string, default: "website" }
+      - { label: "No-index", name: noindex, widget: boolean, default: false }
+      - { label: "OG image", name: ogImage, widget: string, required: false }
+
+collections:
+  - name: site_settings
+    label: "Site Settings"
+    files:
+      - name: integrations
+        label: "Integrations (GA4 / GTM / GSC / IndexNow)"
+        file: "src/content/globals/integrations.json"
+        fields:
+          - { label: "GA4 Measurement ID", name: ga4_measurement_id, widget: string, required: false }
+          - { label: "GTM Container ID", name: gtm_container_id, widget: string, required: false }
+          - { label: "GSC verification content", name: gsc_verification_content, widget: string, required: false }
+          - { label: "IndexNow key", name: indexnow_key, widget: string, required: false }
+          - { label: "Extra <head> HTML", name: extra_head_html, widget: text, required: false }
+      - name: business
+        label: "Business (NAP / reviews / globals)"
+        file: "src/content/globals/business.json"
+        fields:
+          - { label: "Business name", name: business_name, widget: string }
+          - { label: "Legal name", name: legal_name, widget: string }
+          - { label: "Phone", name: phone, widget: string }
+          - { label: "Phone href", name: phone_href, widget: string }
+          - { label: "Review rating", name: review_rating, widget: number, value_type: float }
+          - { label: "Review count", name: review_count, widget: number, value_type: int }
+          - { label: "Pricing year", name: pricing_year, widget: string }
+          - { label: "Owner name", name: owner_name, widget: string }
+          - { label: "Founded year", name: founded_year, widget: number, value_type: int }
+          - { label: "Radius (miles)", name: radius_miles, widget: number, value_type: int }
+          - { label: "Primary county", name: primary_county, widget: string }
+          - { label: "Tagline", name: tagline, widget: string }
+          - { label: "Domain", name: domain, widget: string }
+          - { label: "Cities served", name: cities_served, widget: number, value_type: int }
+          - label: "Address"
+            name: address
+            widget: object
+            fields:
+              - { label: Street, name: street, widget: string }
+              - { label: City, name: city, widget: string }
+              - { label: State, name: state, widget: string }
+              - { label: Zip, name: zip, widget: string }
+
+  - name: home
+    label: "Home"
+    folder: "src/content/home"
+    format: json
+    extension: json
+    create: false
+    fields:
+      - { label: "Body class", name: bodyClass, widget: string }
+      - *seo_fields
+      - { label: "JSON-LD", name: jsonld, widget: list, field: { label: "Script", name: script, widget: text }, required: false }
+      - { label: "Blocks", name: blocks, widget: list, types: *block_types }
+
+  - name: services
+    label: "Services (hubs & spokes)"
+    folder: "src/content/services"
+    format: json
+    extension: json
+    identifier_field: "seo.title"
+    fields:
+      - { label: "Body class", name: bodyClass, widget: string }
+      - *seo_fields
+      - { label: "JSON-LD", name: jsonld, widget: list, field: { label: "Script", name: script, widget: text }, required: false }
+      - { label: "Blocks", name: blocks, widget: list, types: *block_types }
+
+  - name: locations
+    label: "Service Areas (cities)"
+    folder: "src/content/locations"
+    format: json
+    extension: json
+    identifier_field: "seo.title"
+    fields:
+      - { label: "Body class", name: bodyClass, widget: string }
+      - *seo_fields
+      - { label: "JSON-LD", name: jsonld, widget: list, field: { label: "Script", name: script, widget: text }, required: false }
+      - { label: "Blocks", name: blocks, widget: list, types: *block_types }
+
+  - name: pages
+    label: "City + Service (LSP)"
+    folder: "src/content/pages"
+    format: json
+    extension: json
+    identifier_field: "seo.title"
+    fields:
+      - { label: "Body class", name: bodyClass, widget: string }
+      - *seo_fields
+      - { label: "JSON-LD", name: jsonld, widget: list, field: { label: "Script", name: script, widget: text }, required: false }
+      - { label: "Blocks", name: blocks, widget: list, types: *block_types }
+
+  - name: resources
+    label: "Resources & Guides"
+    folder: "src/content/resources"
+    format: json
+    extension: json
+    identifier_field: "seo.title"
+    fields:
+      - { label: "Body class", name: bodyClass, widget: string }
+      - *seo_fields
+      - { label: "JSON-LD", name: jsonld, widget: list, field: { label: "Script", name: script, widget: text }, required: false }
+      - { label: "Blocks", name: blocks, widget: list, types: *block_types }
+
+  - name: general
+    label: "Company pages"
+    folder: "src/content/general"
+    format: json
+    extension: json
+    identifier_field: "seo.title"
+    fields:
+      - { label: "Body class", name: bodyClass, widget: string }
+      - *seo_fields
+      - { label: "JSON-LD", name: jsonld, widget: list, field: { label: "Script", name: script, widget: text }, required: false }
+      - { label: "Blocks", name: blocks, widget: list, types: *block_types }
+
+  - name: blog
+    label: "Blog"
+    folder: "src/content/blog"
+    format: json
+    extension: json
+    identifier_field: "seo.title"
+    fields:
+      - { label: "Body class", name: bodyClass, widget: string }
+      - *seo_fields
+      - { label: "JSON-LD", name: jsonld, widget: list, field: { label: "Script", name: script, widget: text }, required: false }
+      - { label: "Blocks", name: blocks, widget: list, types: *block_types }

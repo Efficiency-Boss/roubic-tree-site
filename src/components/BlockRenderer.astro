@@ -1,0 +1,11 @@
+---
+import Raw from './blocks/Raw.astro';
+import Faq from './blocks/Faq.astro';
+import Ctaband from './blocks/Ctaband.astro';
+
+const MAP: Record<string, any> = { raw: Raw, faq: Faq, ctaband: Ctaband };
+const { block } = Astro.props;
+const Cmp = MAP[block.type];
+if (!Cmp) throw new Error(`BlockRenderer: no renderer for block type "${block.type}"`);
+---
+<Cmp block={block} />

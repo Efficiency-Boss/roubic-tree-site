@@ -1,0 +1,12 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import BlockRenderer from '../components/BlockRenderer.astro';
+import { deepSubst } from '../lib/site';
+
+const home = (await getCollection('home'))[0];
+const d = deepSubst(home.data);
+---
+<Base seo={d.seo} bodyClass={d.bodyClass} jsonld={d.jsonld} activeNav={d.activeNav}>
+  {d.blocks.map((b: any) => <BlockRenderer block={b} />)}
+</Base>

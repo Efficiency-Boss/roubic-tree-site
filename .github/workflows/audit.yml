@@ -1,0 +1,26 @@
+name: audit
+# Build + content/URL audit + redirect walk on every push/PR. Make this the required
+# status check via branch protection on the default branch (Skill 8).
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Build (zod enforces required-field completeness)
+        run: npm run build
+      - name: Compile CMS-managed redirects into dist/_redirects
+        run: node scripts/build-redirects.mjs
+      - name: Content / URL audit
+        run: node scripts/audit.mjs
+      - name: Redirect walk
+        run: node scripts/redirects.mjs
