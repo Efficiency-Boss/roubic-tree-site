@@ -1,0 +1,21 @@
+---
+// Typed FAQ accordion — reproduces the approved static's <section class="faq"> markup exactly.
+const { block: b } = Astro.props;
+---
+<section class={b.section_class}>
+  <div class="container">
+    <div class="faq-head">
+      {b.eyebrow && <span class="eyebrow">{b.eyebrow}</span>}
+      <h2>{b.h2}</h2>
+      {b.intro && <p>{b.intro}</p>}
+    </div>
+    <div class="faq-list">
+      {b.items.map((it: any, i: number) => (
+        <details class="faq-item" name={b.name} open={i === 0}>
+          <summary>{it.q}</summary>
+          <div class="answer" set:html={it.a_html} />
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

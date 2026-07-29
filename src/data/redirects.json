@@ -1,0 +1,4 @@
+[
+  { "from": "/about-us/", "to": "/about/", "status": 301 },
+  { "from": "/resources/tree-service-cost-guide/", "to": "/tree-service-cost-guide/", "status": 301 }
+]

@@ -1,0 +1,60 @@
+---
+import { HEADER_CHROME, FOOTER_CHROME } from '../lib/chrome';
+import HeadTags from '../components/HeadTags.astro';
+import GtmNoscript from '../components/GtmNoscript.astro';
+
+export interface SeoProps {
+  title: string;
+  description: string;
+  canonicalPath: string;
+  ogType?: string;
+  noindex?: boolean;
+  ogImage?: string;
+}
+interface Props { seo: SeoProps; bodyClass: string; jsonld?: string[]; activeNav?: string | null; }
+const { seo, bodyClass, jsonld = [], activeNav = null } = Astro.props;
+
+const site = Astro.site ?? new URL('https://roubictree.com');
+const canonical = new URL(seo.canonicalPath, site).href;
+const ogImage = seo.ogImage ? new URL(seo.ogImage, site).href : undefined;
+
+// Restore the current-section highlight: add `active` to the desktop nav-item whose link
+// href matches activeNav (the chrome ships active-neutralized).
+function withActiveNav(html: string, href: string | null): string {
+  if (!href) return html;
+  const esc = href.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const re = new RegExp('class="(nav-item(?![^"]*\\bactive\\b)[^"]*)">(\\s*<a\\b[^>]*href="' + esc + '")');
+  return html.replace(re, 'class="$1 active">$2');
+}
+const headerHtml = withActiveNav(HEADER_CHROME, activeNav);
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{seo.title}</title>
+<meta name="description" content={seo.description} />
+<link rel="canonical" href={canonical} />
+{seo.noindex && <meta name="robots" content="noindex,nofollow" />}
+<meta property="og:title" content={seo.title} />
+<meta property="og:description" content={seo.description} />
+<meta property="og:type" content={seo.ogType ?? 'website'} />
+<meta property="og:url" content={canonical} />
+{ogImage && <meta property="og:image" content={ogImage} />}
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<link rel="stylesheet" href="/assets/roubic-tree-global.css" />
+<link rel="stylesheet" href="/assets/client_custom.css" />
+<HeadTags />
+</head>
+<body class={bodyClass}>
+<GtmNoscript />
+<Fragment set:html={headerHtml} />
+<slot />
+<Fragment set:html={FOOTER_CHROME} />
+{jsonld.map((j) => <script type="application/ld+json" set:html={j} />)}
+</body>
+</html>

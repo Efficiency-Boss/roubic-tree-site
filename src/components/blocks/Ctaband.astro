@@ -1,0 +1,13 @@
+---
+import Cta from '../Cta.astro';
+const { block: b } = Astro.props;
+---
+<section class={b.section_class} id={b.section_id}>
+  <div class="container">
+    <h2>{b.h2}</h2>
+    {b.p && <p>{b.p}</p>}
+    {b.ctas.length > 0 && (
+      <div class="ctas">{b.ctas.map((c: any) => <Cta c={c} />)}</div>
+    )}
+  </div>
+</section>

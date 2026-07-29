@@ -1,0 +1,24 @@
+{
+ "seo": {
+  "title": "Thank You — We'll Be in Touch | Roubic Tree & Landscape, Auburn Township OH",
+  "description": "Thanks — your request reached Roubic Tree & Landscape. Aaron or the team replies within 1 business day. Urgent tree emergency? Call {{global.phone}}.",
+  "canonicalPath": "/thank-you/",
+  "ogType": "website",
+  "noindex": true
+ },
+ "bodyClass": "pt-contact",
+ "activeNav": "/contact/",
+ "jsonld": [
+  "\n{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://{{global.domain}}/thank-you/#webpage\",\n      \"url\": \"https://{{global.domain}}/thank-you/\",\n      \"name\": \"Thank You — We'll Be in Touch | Roubic Tree & Landscape\",\n      \"description\": \"Your request reached Roubic Tree & Landscape. Aaron or the team replies within 1 business day. For urgent tree emergencies, call {{global.phone}}.\",\n      \"inLanguage\": \"en-US\",\n      \"isPartOf\": { \"@id\": \"https://{{global.domain}}/#website\" }\n    },\n    {\n      \"@type\": \"BreadcrumbList\",\n      \"@id\": \"https://{{global.domain}}/thank-you/#breadcrumb\",\n      \"itemListElement\": [\n        {\n          \"@type\": \"ListItem\",\n          \"position\": 1,\n          \"name\": \"Home\",\n          \"item\": \"https://{{global.domain}}/\"\n        },\n        {\n          \"@type\": \"ListItem\",\n          \"position\": 2,\n          \"name\": \"Thank You\",\n          \"item\": \"https://{{global.domain}}/thank-you/\"\n        }\n      ]\n    }\n  ]\n}\n"
+ ],
+ "blocks": [
+  {
+   "type": "raw",
+   "html": "<section class=\"page-hero\" style=\"--hero-img:url('/images/roubic-contact-hero.webp')\">\n<div class=\"container\">\n<div class=\"content\">\n<div class=\"page-hero-breadcrumb\">\n<a href=\"/\">Home</a> <span class=\"sep\"><i class=\"fa-solid fa-chevron-right\"></i></span> <span>Thank You</span>\n</div>\n<span class=\"eyebrow\">Request Received</span>\n<h1>Thank You — We'll Be in Touch</h1>\n<p class=\"page-hero-sub\">Your message reached us — thank you. {{global.owner_name}} or the team will reply within 1 business day, no auto-reply relay in between. For an urgent tree emergency — storm damage or a tree on a structure — call the 24/7 line at <a href=\"{{global.phone_href}}\">{{global.phone}}</a> and we'll respond right away.</p>\n<div class=\"page-hero-ctas\">\n<a class=\"btn btn-primary\" data-shine=\"true\" href=\"{{global.phone_href}}\">\n<i class=\"fa-solid fa-phone\"></i>\n<span>Call {{global.phone}}</span>\n</a>\n<a class=\"btn btn-secondary on-dark\" href=\"/services/\">\n<i class=\"fa-solid fa-tree\"></i> Browse Our Services\n        </a>\n</div>\n</div>\n</div>\n</section>"
+  },
+  {
+   "type": "raw",
+   "html": "<section class=\"cta-band\">\n<div class=\"container\">\n<h2>While You Wait — Explore Roubic</h2>\n<p>Family-owned in Auburn Township since 1982. Browse the tree work we do across NE Ohio, or call Aaron directly — we're happy to answer questions before your estimate.</p>\n<div class=\"ctas\">\n<a class=\"btn btn-primary-inv\" data-shine=\"true\" href=\"{{global.phone_href}}\">\n<i class=\"fa-solid fa-phone\"></i>\n<span class=\"phone-num\">{{global.phone}}</span>\n</a>\n<a class=\"btn btn-secondary\" href=\"/services/\">\n<i class=\"fa-solid fa-arrow-right\"></i> See All Services\n      </a>\n</div>\n</div>\n</section>"
+  }
+ ]
+}

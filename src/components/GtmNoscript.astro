@@ -1,0 +1,9 @@
+---
+import integrations from '../content/globals/integrations.json';
+const gtm = (integrations.gtm_container_id ?? '').trim();
+const iframe = gtm
+  ? '<iframe src="https://www.googletagmanager.com/ns.html?id=' + gtm +
+    '" height="0" width="0" style="display:none;visibility:hidden"></iframe>'
+  : '';
+---
+{gtm && <noscript set:html={iframe} />}

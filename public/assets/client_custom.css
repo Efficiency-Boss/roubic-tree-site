@@ -1,0 +1,18 @@
+/* ==========================================================================
+   client_custom.css — Roubic Tree post-launch tweak slot
+
+   Purpose: This file is loaded AFTER roubic-tree-global.css on every page.
+   Any post-launch style change that should NOT be added to the canonical
+   stylesheet (which gets regenerated any time Skill 6 Phase 6A re-runs) goes
+   here.
+
+   Rules:
+     • NEVER redeclare a token or override a large canonical rule here.
+     • Prefer specificity over !important.
+     • Every override should carry a comment: what changed, when, why, who.
+     • If a tweak lives here longer than 30 days OR gets reused elsewhere,
+       promote it into roubic-tree-global.css on the next Skill 6 run.
+
+   Empty by design — the audit expects this file to exist at
+   /assets/client_custom.css but does not require any content.
+   ========================================================================== */

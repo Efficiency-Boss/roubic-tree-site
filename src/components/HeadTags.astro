@@ -1,0 +1,27 @@
+---
+// CMS-managed analytics / search-console tags. Empty string = tag not rendered.
+import integrations from '../content/globals/integrations.json';
+const ga4 = (integrations.ga4_measurement_id ?? '').trim();
+const gtm = (integrations.gtm_container_id ?? '').trim();
+const gsc = (integrations.gsc_verification_content ?? '').trim();
+const extra = (integrations.extra_head_html ?? '').trim();
+
+const gtmSrc = 'https://www.googletagmanager.com/gtm.js?id=' + gtm;
+const ga4Src = 'https://www.googletagmanager.com/gtag/js?id=' + ga4;
+const gtmInline = "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());";
+const ga4Inline = gtmInline + "gtag('config','" + ga4 + "');";
+---
+{gsc && <meta name="google-site-verification" content={gsc} />}
+{gtm && (
+  <Fragment>
+    <script is:inline async src={gtmSrc}></script>
+    <script is:inline set:html={gtmInline}></script>
+  </Fragment>
+)}
+{ga4 && (
+  <Fragment>
+    <script is:inline async src={ga4Src}></script>
+    <script is:inline set:html={ga4Inline}></script>
+  </Fragment>
+)}
+{extra && <Fragment set:html={extra} />}

@@ -1,0 +1,22 @@
+{
+  "business_name": "Roubic Tree & Landscape",
+  "legal_name": "Roubic Tree & Landscape LLC",
+  "phone": "(440) 294-8002",
+  "phone_href": "tel:+14402948002",
+  "review_rating": 5.0,
+  "review_count": 153,
+  "pricing_year": "2026",
+  "owner_name": "Aaron Roubic",
+  "founded_year": 1982,
+  "radius_miles": 40,
+  "primary_county": "Geauga",
+  "tagline": "Family-owned NE Ohio tree service since 1982.",
+  "domain": "roubictree.com",
+  "address": {
+    "street": "10840 Taylor May Rd",
+    "city": "Auburn Township",
+    "state": "OH",
+    "zip": "44023"
+  },
+  "cities_served": 13
+}
