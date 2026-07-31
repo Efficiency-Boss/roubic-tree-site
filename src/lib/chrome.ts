@@ -173,10 +173,10 @@ export const FOOTER_CHROME = `<footer class="footer">
 <img alt="Roubic Tree &amp; Landscape LLC" src="/brand_assets/ROUBIC TREE ALL WHITE.png"/>
 <p>Family-owned NE Ohio tree service since 1982. Two generations. One Auburn Township yard.</p>
 <div class="footer-social">
-<a aria-label="Facebook" href="#"><i class="fa-brands fa-facebook-f"></i></a>
-<a aria-label="Instagram" href="#"><i class="fa-brands fa-instagram"></i></a>
-<a aria-label="Google" href="#"><i class="fa-brands fa-google"></i></a>
-<a aria-label="Angi" href="#"><i class="fa-solid fa-star"></i></a>
+<a aria-label="Google Business Profile" href="https://maps.app.goo.gl/u7v27xJWMZv7subX7" target="_blank" rel="noopener"><i class="fa-brands fa-google"></i></a>
+<a aria-label="Better Business Bureau — A+" href="https://www.bbb.org/us/oh/auburn-twp/profile/tree-service/roubic-tree-service-llc-0312-92015179" target="_blank" rel="noopener"><i class="fa-solid fa-shield-halved"></i></a>
+<a aria-label="Nextdoor" href="https://nextdoor.com/pages/roubic-tree-service-chagrin-falls-oh/" target="_blank" rel="noopener"><i class="fa-solid fa-house"></i></a>
+<a aria-label="Angi" href="https://www.angi.com/companylist/us/oh/chagrin-falls/roubic-tree-service-llc-reviews-9597027.htm" target="_blank" rel="noopener"><i class="fa-solid fa-star"></i></a>
 </div>
 </div>
 <div><h4>Services</h4><ul><li><a href="/services/tree-removal/">Tree Removal</a></li><li><a href="/services/tree-trimming-pruning/">Trimming</a></li><li><a href="/services/stump-grinding/">Stump Grinding</a></li><li><a href="/services/land-clearing/">Land Clearing</a></li><li><a href="/services/storm-damage-emergency/">Storm Damage</a></li><li><a href="/services/firewood-delivery/">Firewood</a></li></ul></div>
@@ -194,7 +194,7 @@ export const FOOTER_CHROME = `<footer class="footer">
 </div>
 <div class="footer-bottom">
 <div>© 1982–2026 Roubic Tree &amp; Landscape LLC · <a href="/privacy-policy/">Privacy</a> · <a href="/terms-and-conditions/">Terms</a> · <a href="/sitemap.xml">Sitemap</a></div>
-<div class="powered">Powered by <strong>Efficiency Boss</strong></div>
+<a class="powered" href="https://efficiencyboss.com/" target="_blank" rel="noopener" aria-label="Powered by Efficiency Boss"><img src="/brand_assets/eb-badge.png" alt="Powered by Efficiency Boss" width="200" height="25" style="height:26px;width:auto;display:block"/></a>
 </div>
 </div>
 </footer>
