@@ -99,3 +99,33 @@ body.pt-lsp .adj-card .adj-icon { margin-left: auto; margin-right: auto; }
 body.pt-home .problem-img::after {
   left: 0; right: 0; bottom: 0; border-radius: 0;
   background: rgba(51,57,68,0.82); padding: 12px 20px; }
+
+/* ==========================================================================
+   Design QA round 2 — Masud's functional QA (2026-07-31)
+   ========================================================================== */
+
+/* [#3] Homepage: two consecutive grey sections blended. Make the services
+   section white so it separates from the grey "Defer a Hazard Tree" above it. */
+body.pt-home .services { background: var(--white); }
+
+/* [#4/#5] Homepage image columns were fixed-height and centered, leaving empty
+   space above/below. Stretch them to fill the section height. */
+body.pt-home .problem-grid, body.pt-home .why-grid { align-items: stretch; }
+body.pt-home .problem-img, body.pt-home .why-img { height: auto; min-height: 460px; }
+
+/* [#6a] Taller Google map embed on the homepage. */
+body.pt-home .gbp-map { height: 500px; }
+
+/* [#9] Process steps: 1 card per row on mobile (was 2 — cramped). */
+@media (max-width: 640px) {
+  body.pt-home .process-grid, body.pt-services-index .process-grid { grid-template-columns: 1fr; }
+}
+
+/* [#19] Blog filter bar: not sticky on mobile so it doesn't eat the screen. */
+@media (max-width: 768px) { body.pt-blog .filter-bar { position: static; } }
+
+/* [#21] Cap tall section images on mobile so content isn't pushed way down. */
+@media (max-width: 640px) {
+  body.pt-home .problem-img, body.pt-home .why-img { min-height: 260px; height: 260px; }
+  body.pt-home .gbp-map { height: 340px; }
+}
