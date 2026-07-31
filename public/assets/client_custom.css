@@ -16,3 +16,86 @@
    Empty by design — the audit expects this file to exist at
    /assets/client_custom.css but does not require any content.
    ========================================================================== */
+
+/* ==========================================================================
+   Design QA round 1 — client feedback 2026-07-31 (Roubic Tree QA.docx)
+   All overrides below load after the canonical sheet; same-specificity ties
+   resolve in our favor by source order. Comments map each block to its finding.
+   ========================================================================== */
+
+/* [G] "Powered by EB" wordmark should be white — no yellow brand version. */
+body .footer-bottom .powered strong { color: #ffffff !important; }
+
+/* [Table] tree-removal + residential price tables: header yellow→navy,
+   body navy→white, text recolored for contrast — matches the LSP table look. */
+body.pt-service-hub .price-table,
+body.pt-service-spoke .price-table { background: var(--white); border-color: var(--gray-2); }
+body.pt-service-hub .price-table-head,
+body.pt-service-spoke .price-table-head { background: var(--navy); color: var(--white); }
+body.pt-service-hub .price-table-head > div,
+body.pt-service-spoke .price-table-head > div { border-right-color: rgba(255,255,255,0.15); }
+body.pt-service-hub .price-row,
+body.pt-service-spoke .price-row { border-bottom-color: var(--gray-2); }
+body.pt-service-hub .price-row:hover,
+body.pt-service-spoke .price-row:hover { background: var(--gray); }
+body.pt-service-hub .price-row > div,
+body.pt-service-spoke .price-row > div { border-right-color: var(--gray-2); }
+body.pt-service-hub .price-row .scenario,
+body.pt-service-spoke .price-row .scenario { color: var(--royal-blue); }
+body.pt-service-hub .price-row .scenario small,
+body.pt-service-spoke .price-row .scenario small { color: var(--text-muted); }
+body.pt-service-hub .price-row .includes,
+body.pt-service-spoke .price-row .includes { color: var(--navy); }
+body.pt-service-hub .price-row .price,
+body.pt-service-spoke .price-row .price { color: var(--royal-blue); }
+
+/* [Risk] "Cost of Deferring a Hazard Tree" cards: red accents → gold. */
+body.pt-service-hub .risk-card,
+body.pt-lsp .risk-card { border-left-color: var(--gold); }
+body.pt-service-hub .risk-icon,
+body.pt-lsp .risk-icon { background: rgba(212,175,55,0.12); color: var(--gold); }
+body.pt-service-hub .risk .eyebrow,
+body.pt-lsp .risk .eyebrow { color: var(--gold); }
+
+/* [Overlay] service-areas hero: lighten so the forest photo reads through. */
+body.pt-service-areas .page-hero::before { opacity: 0.78; }
+body.pt-service-areas .page-hero::after {
+  background: linear-gradient(90deg, rgba(11,20,38,0.72) 0%, rgba(11,20,38,0.45) 55%, rgba(11,20,38,0.16) 100%); }
+
+/* [Tiles] service + city tiles get a photo banner (client: "tiles should
+   have images"). Banner breaks out of card padding, clipped to the radius. */
+body.pt-home .service-card { padding-top: 0; overflow: hidden; }
+body.pt-home .service-card .service-media { margin: 0 -28px 24px; height: 172px; }
+body.pt-home .service-card .service-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+body.pt-home .city-card { padding-top: 0; overflow: hidden; justify-content: flex-start; }
+body.pt-home .city-card .city-media { display: block; margin: 0 -16px 12px; width: calc(100% + 32px); height: 96px; }
+body.pt-home .city-card .city-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+body.pt-home .city-card.hq .city-media { margin-bottom: 8px; }
+
+/* [Tiles rollout] city tiles on service hub + spoke pages. */
+body.pt-service-hub .city-card,
+body.pt-service-spoke .city-card { padding-top: 0; overflow: hidden; justify-content: flex-start; }
+body.pt-service-hub .city-card .city-media,
+body.pt-service-spoke .city-card .city-media { display: block; margin: 0 -16px 12px; width: calc(100% + 32px); height: 96px; }
+body.pt-service-hub .city-card.hq .city-media,
+body.pt-service-spoke .city-card.hq .city-media { margin-bottom: 8px; }
+.city-card .city-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* [Tiles rollout] nearby-city cards on location + LSP pages. These are a
+   horizontal flex row by default — switch to a column so the photo banner
+   sits on top and the icon + name center below (matches the city tiles). */
+body.pt-location-hub .adj-card,
+body.pt-lsp .adj-card { flex-direction: column; align-items: stretch; gap: 0;
+  padding-top: 0; overflow: hidden; text-align: center; }
+body.pt-location-hub .adj-card .adj-media,
+body.pt-lsp .adj-card .adj-media { display: block; margin: 0 -18px 12px; width: calc(100% + 36px); height: 104px; }
+body.pt-location-hub .adj-card .adj-icon,
+body.pt-lsp .adj-card .adj-icon { margin-left: auto; margin-right: auto; }
+.adj-card .adj-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* [Caption] homepage hazard-tree photo: navy floating box → full-width gray
+   bar flush at the bottom edge (client: "gray bar across, not covering"). */
+body.pt-home .problem-img::after {
+  left: 0; right: 0; bottom: 0; border-radius: 0;
+  background: rgba(51,57,68,0.82); padding: 12px 20px; }
