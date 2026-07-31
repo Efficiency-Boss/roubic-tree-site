@@ -134,3 +134,50 @@ body.pt-home .gbp-map { height: 500px; }
    point it at the real crew/yard photo instead. (The About/Why portraits now
    use a branded avatar; About/Why + Blog heroes use real photos.) */
 body.pt-home .why-img { background: url("../images/roubic-auburn-township-oh-hero.webp") center/cover no-repeat; }
+
+/* ==========================================================================
+   Design QA round 2 — polish pass (2026-07-31)
+   ========================================================================== */
+
+/* [#22/#23] Center incomplete last rows of card grids (were left-aligned with
+   an empty gap on the right). Cards grow to fill complete rows but cap out, so
+   an orphan row sits centered at the cap width instead of hugging the left. */
+@media (min-width: 500px) {
+  body.pt-service-hub .spokes-grid,
+  body.pt-service-spoke .siblings-grid,
+  body.pt-service-hub .who-grid { display: flex; flex-wrap: wrap; justify-content: center; }
+  body.pt-service-hub .spokes-grid > * { flex: 1 1 200px; max-width: 260px; }
+  body.pt-service-spoke .siblings-grid > *,
+  body.pt-service-hub .who-grid > * { flex: 1 1 240px; max-width: 300px; }
+}
+
+/* [#14] Reduce excessive section padding on mobile (content sections only —
+   heroes / CTA bands / the emergency strip keep their own spacing). */
+@media (max-width: 640px) {
+  body[class*="pt-"] section:not([class*="hero"]):not(.cta-band):not(.emergency) {
+    padding-top: 56px; padding-bottom: 56px;
+  }
+}
+
+/* [#27/#28] Resource/guide data tables were unstyled (looked like plain text,
+   broke on mobile). Give them real table styling + horizontal scroll on phones. */
+.article-section table {
+  width: 100%; border-collapse: collapse; margin: 24px 0;
+  font-size: 14px; border: 1px solid var(--gray-2);
+}
+.article-section thead th {
+  background: var(--navy); color: var(--white); text-align: left;
+  padding: 12px 14px; font-size: 12px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.03em;
+}
+.article-section tbody td {
+  padding: 11px 14px; border-top: 1px solid var(--gray-2);
+  color: var(--navy); vertical-align: top;
+}
+.article-section tbody tr:nth-child(even) { background: var(--gray); }
+.article-section tbody tr:hover { background: rgba(212,175,55,0.07); }
+@media (max-width: 640px) {
+  .article-section table {
+    display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: nowrap;
+  }
+}
