@@ -197,3 +197,91 @@ body.pt-lsp .story-img {
 body.pt-service-hub .why-need-img {
   background: url("../images/roubic-when-to-remove-tree-hero.webp") center/cover no-repeat;
 }
+
+/* ==========================================================================
+   Design QA round 4 — Masud's QA (2026-07-31)
+   ========================================================================== */
+
+/* [#11/#12] Spoke/sibling card thumbnails use an <img> inside a fixed-height
+   thumb, but the img was unstyled and overflowed — pushing card text on top of
+   the image (unreadable). Constrain the img to the thumb. */
+.spoke-thumb img, .sib-thumb img, .cs-thumb img, .related-thumb img, .project-img img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+
+/* [#2] Page-hero content sat centered with a big empty gap on the left: the
+   flex .container was shrinking to its content width and then centering. Force
+   the container full-width so the content lines up under the logo. */
+body[class*="pt-"] .page-hero .container { width: 100%; }
+body[class*="pt-"] .page-hero .content { margin-left: 0; margin-right: auto; }
+
+/* [#10] Center incomplete last rows of the diff-grid ("why choose" cards) too. */
+@media (min-width: 500px) {
+  body.pt-service-hub .diff-grid, body.pt-service-spoke .diff-grid {
+    display: flex; flex-wrap: wrap; justify-content: center;
+  }
+  body.pt-service-hub .diff-grid > *, body.pt-service-spoke .diff-grid > * {
+    flex: 1 1 220px; max-width: 320px;
+  }
+}
+
+/* [#4] Owner-story mini "timeline" (.role-ribbon: 2009 -> Joined -> 2017 -> ...)
+   was a cramped horizontal row on mobile. Stack it vertically. */
+@media (max-width: 600px) {
+  body.pt-about .role-ribbon, body.pt-why-choose-us .role-ribbon {
+    flex-direction: column; align-items: flex-start; gap: 6px;
+    width: fit-content; border-radius: 14px; padding: 14px 18px;
+  }
+  body.pt-about .role-ribbon .arrow, body.pt-why-choose-us .role-ribbon .arrow { transform: rotate(90deg); }
+}
+
+/* [#5] About / Why-Choose founder sections: the "reversed" section put its image
+   first on mobile, so two images landed back-to-back. Force text-first on mobile
+   so the layout alternates text-image-text-image. */
+@media (max-width: 768px) {
+  body.pt-about .founder-grid.reversed, body.pt-why-choose-us .founder-grid.reversed {
+    display: flex; flex-direction: column-reverse; direction: ltr;
+  }
+}
+
+/* [#9 + #5] Section images are too tall on mobile across the site — cap them so
+   content isn't pushed way down. */
+@media (max-width: 640px) {
+  body.pt-location-hub .story-img, body.pt-lsp .story-img,
+  body.pt-service-hub .why-need-img,
+  body.pt-about .portrait-frame img, body.pt-why-choose-us .portrait-frame img,
+  body.pt-about .founder-grid img, body.pt-why-choose-us .founder-grid img {
+    max-height: 300px; min-height: 0; height: auto; object-fit: cover;
+  }
+  body[class*="pt-"] .page-hero { min-height: 340px; }
+}
+
+/* [#15] Resource/guide pricing tables were getting cut off on the right on
+   mobile instead of scrolling. Make the table a horizontal-scroll container. */
+@media (max-width: 640px) {
+  .article-section { overflow-x: hidden; }
+  .article-section table {
+    display: block; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch;
+  }
+  .article-section table thead, .article-section table tbody { white-space: nowrap; }
+  .article-section table td, .article-section table th { min-width: 120px; }
+}
+
+/* [#1] Mobile menu: keep the logo + close button visible at the top when open
+   (Rhino-style), instead of an empty top bar. */
+body.pt-home .mobile-menu, body[class*="pt-"] .mobile-menu { padding-top: 20px; }
+.mobile-menu-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-bottom: 16px; margin-bottom: 8px; border-bottom: 1px solid var(--gray-2);
+}
+.mobile-menu-header .mm-logo img { height: 46px; width: auto; display: block; }
+.mobile-menu .mobile-menu-close {
+  position: static; font-size: 26px; color: var(--navy);
+  background: transparent; border: none; cursor: pointer; line-height: 1;
+}
+
+/* [#6] The firewood-quote modal (#ghlModal) is styled per-page-type in the
+   canonical CSS, but some page types (e.g. contact) were missing the rule, so
+   the modal rendered in-flow as a stray white block below the footer. Hide it
+   globally unless it has been explicitly opened. */
+.ghl-modal:not(.open) { display: none !important; }

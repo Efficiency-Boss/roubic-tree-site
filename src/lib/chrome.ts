@@ -125,9 +125,12 @@ export const HEADER_CHROME = `<div class="utility-bar">
 </div>
 </header>
 <div class="mobile-menu" id="mobileMenu">
+<div class="mobile-menu-header">
+<a class="mm-logo" href="/"><img alt="Roubic Tree &amp; Landscape LLC" src="/brand_assets/ROUBIC TREE all BLUE.png"/></a>
 <button aria-label="Close menu" class="mobile-menu-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">
 <i class="fa-solid fa-times"></i>
 </button>
+</div>
 <details>
 <summary>Services</summary>
 <ul>
