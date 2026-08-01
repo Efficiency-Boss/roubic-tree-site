@@ -170,7 +170,7 @@ export const FOOTER_CHROME = `<footer class="footer">
 <div class="container">
 <div class="footer-top">
 <div class="footer-brand">
-<img alt="Roubic Tree &amp; Landscape LLC" src="/brand_assets/ROUBIC TREE ALL WHITE.png"/>
+<img alt="Roubic Tree &amp; Landscape LLC" src="/brand_assets/ROUBIC TREE ALL GOLD.png"/>
 <p>Family-owned NE Ohio tree service since 1982. Two generations. One Auburn Township yard.</p>
 <div class="footer-social">
 <a aria-label="Google Business Profile" href="https://maps.app.goo.gl/u7v27xJWMZv7subX7" target="_blank" rel="noopener"><i class="fa-brands fa-google"></i></a>
