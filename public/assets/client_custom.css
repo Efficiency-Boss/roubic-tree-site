@@ -236,7 +236,7 @@ body[class*="pt-"] .page-hero .content { margin-left: 0; margin-right: auto; }
    was a cramped horizontal row on mobile. Stack it vertically. */
 @media (max-width: 600px) {
   body.pt-about .role-ribbon, body.pt-why-choose-us .role-ribbon {
-    flex-direction: column; align-items: center; gap: 6px;
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
     width: fit-content; margin: 8px auto; border-radius: 14px; padding: 14px 22px;
   }
   body.pt-about .role-ribbon .arrow, body.pt-why-choose-us .role-ribbon .arrow { transform: rotate(90deg); }
@@ -261,6 +261,14 @@ body[class*="pt-"] .page-hero .content { margin-left: 0; margin-right: auto; }
     max-height: 300px; min-height: 0; height: auto; object-fit: cover;
   }
   body[class*="pt-"] .page-hero { min-height: 340px; }
+}
+
+/* [#15b] Resource/guide article grid (content + 260px sidebar) never collapsed
+   on mobile — the fixed sidebar pushed ~26px past the screen, creating a stray
+   right-edge scroll strip. Stack it to one column on tablet/mobile. */
+@media (max-width: 900px) {
+  body.pt-resource .article-grid { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+  body.pt-resource .article-body { min-width: 0; max-width: 100%; }
 }
 
 /* [#15] Resource/guide pricing tables were cut off on the right on mobile. Let
