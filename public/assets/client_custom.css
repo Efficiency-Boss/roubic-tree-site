@@ -285,3 +285,16 @@ body.pt-home .mobile-menu, body[class*="pt-"] .mobile-menu { padding-top: 20px; 
    the modal rendered in-flow as a stray white block below the footer. Hide it
    globally unless it has been explicitly opened. */
 .ghl-modal:not(.open) { display: none !important; }
+
+/* [#7] Blog is intentionally index-only (no individual posts yet). Removed the
+   non-functional filter bar and mark every card "Coming Soon" so nothing reads
+   as a dead link. Cards are previews, not clickable. */
+body.pt-blog .post-img, body.pt-blog .featured-img { position: relative; }
+body.pt-blog .coming-badge {
+  position: absolute; top: 12px; right: 12px; z-index: 2;
+  background: var(--navy); color: #fff; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 5px 10px; border-radius: 999px;
+}
+body.pt-blog .post-card, body.pt-blog .featured-card { cursor: default; }
+body.pt-blog .post-card:hover, body.pt-blog .featured-card:hover { transform: none; }
