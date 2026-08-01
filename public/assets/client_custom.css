@@ -181,3 +181,19 @@ body.pt-home .why-img { background: url("../images/roubic-auburn-township-oh-her
     display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: nowrap;
   }
 }
+
+/* [QA r3] The "Estate-District Work" story image was hard-coded in the canonical
+   CSS to the pepper-pike tree-removal photo, so it (a) duplicated the Tree Removal
+   card on the pepper-pike hub and (b) showed a pepper-pike photo on every other
+   city's story section. Point it at a distinct work photo (unique on every page). */
+body.pt-location-hub .story-img,
+body.pt-lsp .story-img {
+  background: url("../images/roubic-large-tree-removal-hero.webp") center/cover no-repeat;
+}
+
+/* [QA r3] Service-hub "why you need this" image was hard-coded to the
+   dangerous-dead-tree-removal photo, which duplicated the Dangerous/Dead Tree
+   Removal spoke card on the tree-removal hub. Point it at a distinct photo. */
+body.pt-service-hub .why-need-img {
+  background: url("../images/roubic-when-to-remove-tree-hero.webp") center/cover no-repeat;
+}
