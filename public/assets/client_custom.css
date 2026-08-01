@@ -205,9 +205,16 @@ body.pt-service-hub .why-need-img {
 /* [#11/#12] Spoke/sibling card thumbnails use an <img> inside a fixed-height
    thumb, but the img was unstyled and overflowed — pushing card text on top of
    the image (unreadable). Constrain the img to the thumb. */
+.spoke-thumb, .sib-thumb, .cs-thumb, .related-thumb { overflow: hidden; }
 .spoke-thumb img, .sib-thumb img, .cs-thumb img, .related-thumb img, .project-img img {
   width: 100%; height: 100%; object-fit: cover; display: block;
 }
+/* the sib-card thumb wasn't holding its height in the flex column, so the img
+   spilled over the card text — pin the banner height and clip it. */
+body.pt-service-spoke .sib-card .sib-thumb { height: 130px; min-height: 130px; flex: 0 0 130px; }
+body.pt-service-spoke .sib-card .sib-thumb img { height: 130px; }
+/* a little breathing room between the thumbnail and the card title */
+body.pt-service-hub .spoke-body, body.pt-service-spoke .sib-body { padding-top: 20px; }
 
 /* [#2] Page-hero content sat centered with a big empty gap on the left: the
    flex .container was shrinking to its content width and then centering. Force
@@ -229,8 +236,8 @@ body[class*="pt-"] .page-hero .content { margin-left: 0; margin-right: auto; }
    was a cramped horizontal row on mobile. Stack it vertically. */
 @media (max-width: 600px) {
   body.pt-about .role-ribbon, body.pt-why-choose-us .role-ribbon {
-    flex-direction: column; align-items: flex-start; gap: 6px;
-    width: fit-content; border-radius: 14px; padding: 14px 18px;
+    flex-direction: column; align-items: center; gap: 6px;
+    width: fit-content; margin: 8px auto; border-radius: 14px; padding: 14px 22px;
   }
   body.pt-about .role-ribbon .arrow, body.pt-why-choose-us .role-ribbon .arrow { transform: rotate(90deg); }
 }
@@ -256,15 +263,17 @@ body[class*="pt-"] .page-hero .content { margin-left: 0; margin-right: auto; }
   body[class*="pt-"] .page-hero { min-height: 340px; }
 }
 
-/* [#15] Resource/guide pricing tables were getting cut off on the right on
-   mobile instead of scrolling. Make the table a horizontal-scroll container. */
+/* [#15] Resource/guide pricing tables were cut off on the right on mobile. Let
+   the cells wrap so the whole table fits the screen (all columns visible), with
+   horizontal scroll only as a fallback. */
 @media (max-width: 640px) {
-  .article-section { overflow-x: hidden; }
   .article-section table {
     display: block; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch;
+    font-size: 13px;
   }
-  .article-section table thead, .article-section table tbody { white-space: nowrap; }
-  .article-section table td, .article-section table th { min-width: 120px; }
+  .article-section table td, .article-section table th {
+    white-space: normal; padding: 8px 10px; min-width: 68px;
+  }
 }
 
 /* [#1] Mobile menu: keep the logo + close button visible at the top when open
