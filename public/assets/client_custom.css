@@ -347,6 +347,30 @@ body[class*="pt-"] .mobile-menu.open {
 /* [QA6 #3] Decision table: "No" cells were 18px vs "Yes" 14px — make them match. */
 body.pt-service-hub .compare-row .no, body.pt-service-spoke .compare-row .no { font-size: 14px; }
 
+/* ==========================================================================
+   Design QA round 7 — Ammar's technical QA (2026-08)
+   ========================================================================== */
+
+/* [#2/#3] Column headings changed from <h4>/<h3> to plain .col-head — restyle
+   to match the old heading look (mega = royal-blue, footer = gold). */
+.header .mega-col .col-head {
+  font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--royal-blue); font-weight: 700; margin: 0 0 12px;
+}
+.footer .col-head {
+  font-family: "Inter", sans-serif; font-size: 12px; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--gold); font-weight: 600; margin: 0 0 14px;
+}
+.ghl-modal-head .modal-h { font-family: "Playfair Display", serif; font-weight: 700; font-size: 18px; margin: 0; }
+
+/* [#13] Utility bar (strip above the header) read as near-black — lighter blue. */
+body[class*="pt-"] .utility-bar { background: #1f3d70; }
+
+/* [#5] Services mega now has a 4th column (Storm & Firewood) — widen to 4 cols
+   so it stays on one row. */
+body[class*="pt-"] .mega-services { max-width: 1120px; }
+body[class*="pt-"] .mega-services .mega-cols { grid-template-columns: repeat(4, 1fr); gap: 28px; }
+
 /* [#6] The firewood-quote modal (#ghlModal) is styled per-page-type in the
    canonical CSS, but some page types (e.g. contact) were missing the rule, so
    the modal rendered in-flow as a stray white block below the footer. Hide it

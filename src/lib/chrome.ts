@@ -20,7 +20,7 @@ export const HEADER_CHROME = `<div class="utility-bar">
 <div class="mega mega-services" role="menu">
 <div class="mega-cols">
 <div class="mega-col">
-<h4>Tree Removal</h4>
+<div class="col-head">Tree Removal</div>
 <ul>
 <li><a class="hub-link" href="/services/tree-removal/">All Tree Removal →</a></li>
 <li><a href="/services/tree-removal/residential-tree-removal/">Residential Removal</a></li>
@@ -31,7 +31,7 @@ export const HEADER_CHROME = `<div class="utility-bar">
 </ul>
 </div>
 <div class="mega-col">
-<h4>Trimming &amp; Pruning</h4>
+<div class="col-head">Trimming &amp; Pruning</div>
 <ul>
 <li><a class="hub-link" href="/services/tree-trimming-pruning/">All Trimming &amp; Pruning →</a></li>
 <li><a href="/services/tree-trimming-pruning/crown-reduction/">Crown Reduction</a></li>
@@ -42,13 +42,23 @@ export const HEADER_CHROME = `<div class="utility-bar">
 </ul>
 </div>
 <div class="mega-col">
-<h4>Grinding &amp; Clearing</h4>
+<div class="col-head">Grinding &amp; Clearing</div>
 <ul>
 <li><a class="hub-link" href="/services/stump-grinding/">Stump Grinding →</a></li>
 <li><a href="/services/stump-grinding/commercial-stump-grinding/">Commercial Grinding</a></li>
 <li><a class="hub-link" href="/services/land-clearing/">Land Clearing →</a></li>
 <li><a href="/services/land-clearing/lot-clearing/">Lot Clearing</a></li>
 <li><a href="/services/land-clearing/brush-clearing/">Brush Clearing</a></li>
+</ul>
+</div>
+<div class="mega-col">
+<div class="col-head">Storm & Firewood</div>
+<ul>
+<li><a class="hub-link" href="/services/storm-damage-emergency/">Storm Damage & Emergency →</a></li>
+<li><a href="/services/storm-damage-emergency/24-7-emergency-tree-service/">24/7 Emergency Service</a></li>
+<li><a href="/services/storm-damage-emergency/fallen-tree-removal/">Fallen Tree Removal</a></li>
+<li><a class="hub-link" href="/services/firewood-delivery/">Firewood Delivery →</a></li>
+<li><a href="/services/firewood-delivery/seasoned-firewood/">Seasoned Firewood</a></li>
 </ul>
 </div>
 </div>
@@ -59,7 +69,7 @@ export const HEADER_CHROME = `<div class="utility-bar">
 <div class="mega" role="menu">
 <div class="mega-cols">
 <div class="mega-col">
-<h4>Tier 1 — Priority Response</h4>
+<div class="col-head">Tier 1 — Priority Response</div>
 <ul>
 <li><a href="/auburn-township-oh/">Auburn Township (HQ)</a></li>
 <li><a href="/pepper-pike-oh/">Pepper Pike</a></li>
@@ -69,7 +79,7 @@ export const HEADER_CHROME = `<div class="utility-bar">
 </ul>
 </div>
 <div class="mega-col">
-<h4>Tier 2 — 2-day</h4>
+<div class="col-head">Tier 2 — 2-day</div>
 <ul>
 <li><a href="/gates-mills-oh/">Gates Mills</a></li>
 <li><a href="/beachwood-oh/">Beachwood</a></li>
@@ -79,7 +89,7 @@ export const HEADER_CHROME = `<div class="utility-bar">
 </ul>
 </div>
 <div class="mega-col">
-<h4>Tier 3</h4>
+<div class="col-head">Tier 3</div>
 <ul>
 <li><a href="/chesterland-oh/">Chesterland</a></li>
 <li><a href="/mayfield-oh/">Mayfield</a></li>
@@ -95,7 +105,7 @@ export const HEADER_CHROME = `<div class="utility-bar">
 <div class="mega" role="menu">
 <div class="mega-cols" style="grid-template-columns: 1fr 1fr">
 <div class="mega-col">
-<h4>Guides</h4>
+<div class="col-head">Guides</div>
 <ul>
 <li><a class="hub-link" href="/blog/">Blog →</a></li>
 <li><a href="/tree-service-cost-guide/">Tree Service Cost Guide</a></li>
@@ -104,7 +114,7 @@ export const HEADER_CHROME = `<div class="utility-bar">
 </ul>
 </div>
 <div class="mega-col">
-<h4>Reference</h4>
+<div class="col-head">Reference</div>
 <ul>
 <li><a href="/storm-preparation-checklist/">Storm Preparation</a></li>
 <li><a href="/arborist-guide/">Arborist's Guide</a></li>
@@ -173,7 +183,7 @@ export const FOOTER_CHROME = `<footer class="footer">
 <div class="container">
 <div class="footer-top">
 <div class="footer-brand">
-<img alt="Roubic Tree &amp; Landscape LLC" src="/brand_assets/ROUBIC TREE ALL GOLD.png"/>
+<a href="/" aria-label="Roubic Tree home"><img alt="Roubic Tree &amp; Landscape LLC" src="/brand_assets/ROUBIC TREE ALL GOLD.png"/></a>
 <p>Family-owned NE Ohio tree service since 1982. Two generations. One Auburn Township yard.</p>
 <div class="footer-social">
 <a aria-label="Google Business Profile" href="https://maps.app.goo.gl/u7v27xJWMZv7subX7" target="_blank" rel="noopener"><i class="fa-brands fa-google"></i></a>
@@ -182,11 +192,11 @@ export const FOOTER_CHROME = `<footer class="footer">
 <a aria-label="Angi" href="https://www.angi.com/companylist/us/oh/chagrin-falls/roubic-tree-service-llc-reviews-9597027.htm" target="_blank" rel="noopener"><i class="fa-solid fa-star"></i></a>
 </div>
 </div>
-<div><h4>Services</h4><ul><li><a href="/services/tree-removal/">Tree Removal</a></li><li><a href="/services/tree-trimming-pruning/">Trimming</a></li><li><a href="/services/stump-grinding/">Stump Grinding</a></li><li><a href="/services/land-clearing/">Land Clearing</a></li><li><a href="/services/storm-damage-emergency/">Storm Damage</a></li><li><a href="/services/firewood-delivery/">Firewood</a></li></ul></div>
-<div><h4>Service Areas</h4><ul><li><a href="/auburn-township-oh/">Auburn Township</a></li><li><a href="/pepper-pike-oh/">Pepper Pike</a></li><li><a href="/chagrin-falls-oh/">Chagrin Falls</a></li><li><a href="/moreland-hills-oh/">Moreland Hills</a></li><li><a href="/solon-oh/">Solon</a></li><li><a href="/service-areas/">All 13 Cities →</a></li></ul></div>
-<div><h4>Company</h4><ul><li><a href="/about/">About</a></li><li><a href="/why-choose-us/">Why Choose Us</a></li><li><a href="/resources/">Resources</a></li><li><a href="/blog/">Blog</a></li><li><a href="/contact/">Contact</a></li></ul></div>
+<div><div class="col-head">Services</div><ul><li><a href="/services/tree-removal/">Tree Removal</a></li><li><a href="/services/tree-trimming-pruning/">Trimming</a></li><li><a href="/services/stump-grinding/">Stump Grinding</a></li><li><a href="/services/land-clearing/">Land Clearing</a></li><li><a href="/services/storm-damage-emergency/">Storm Damage</a></li><li><a href="/services/firewood-delivery/">Firewood</a></li></ul></div>
+<div><div class="col-head">Service Areas</div><ul><li><a href="/auburn-township-oh/">Auburn Township</a></li><li><a href="/pepper-pike-oh/">Pepper Pike</a></li><li><a href="/chagrin-falls-oh/">Chagrin Falls</a></li><li><a href="/moreland-hills-oh/">Moreland Hills</a></li><li><a href="/solon-oh/">Solon</a></li><li><a href="/service-areas/">All 13 Cities →</a></li></ul></div>
+<div><div class="col-head">Company</div><ul><li><a href="/about/">About</a></li><li><a href="/why-choose-us/">Why Choose Us</a></li><li><a href="/resources/">Resources</a></li><li><a href="/blog/">Blog</a></li><li><a href="/contact/">Contact</a></li></ul></div>
 <div>
-<h4>Contact</h4>
+<div class="col-head">Contact</div>
 <ul class="footer-contact">
 <li><i class="fa-solid fa-map-pin"></i>10840 Taylor May Rd<br/>Auburn Township, OH 44023</li>
 <li><i class="fa-solid fa-phone"></i><a href="tel:+14402948002">(440) 294-8002</a></li>
@@ -196,7 +206,7 @@ export const FOOTER_CHROME = `<footer class="footer">
 </div>
 </div>
 <div class="footer-bottom">
-<div>© 1982–2026 Roubic Tree &amp; Landscape LLC · <a href="/privacy-policy/">Privacy</a> · <a href="/terms-and-conditions/">Terms</a> · <a href="/sitemap.xml">Sitemap</a></div>
+<div>© 1982–2026 Roubic Tree &amp; Landscape LLC · <a href="/privacy-policy/">Privacy</a> · <a href="/terms-and-conditions/">Terms</a> · <a href="/sitemap-index.xml">Sitemap</a></div>
 <a class="powered" href="https://efficiencyboss.com/" target="_blank" rel="noopener" aria-label="Powered by Efficiency Boss"><img src="/brand_assets/eb-badge.png" alt="Powered by Efficiency Boss" width="200" height="25" style="height:26px;width:auto;display:block"/></a>
 </div>
 </div>
@@ -208,7 +218,7 @@ export const FOOTER_CHROME = `<footer class="footer">
 <div aria-modal="true" class="ghl-modal" id="ghlModal" role="dialog">
 <div class="ghl-modal-inner">
 <div class="ghl-modal-head">
-<div><h3>Free Auburn Township Firewood Quote</h3><p>Aaron responds within 1 business day</p></div>
+<div><p class="modal-h">Free Auburn Township Firewood Quote</p><p>Aaron responds within 1 business day</p></div>
 <button class="ghl-modal-close" onclick="closeGhlModal()" type="button"><i class="fa-solid fa-xmark"></i></button>
 </div>
 <div class="ghl-modal-body" id="ghlModalBody"></div>
