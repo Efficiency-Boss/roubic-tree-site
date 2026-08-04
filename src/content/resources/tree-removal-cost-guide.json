@@ -20,7 +20,7 @@
   },
   {
    "type": "raw",
-   "html": "<div class=\"author-bar\">\n<div class=\"container\">\n<div class=\"author-info\">\n<div class=\"author-avatar\">AR</div>\n<div class=\"author-details\">\n<p class=\"author-name\">{{global.owner_name}} <i class=\"fa-solid fa-check-circle verified\" title=\"Verified author\"></i></p>\n<p class=\"author-role\">Owner · Operations Lead · NE Ohio tree work</p>\n</div>\n</div>\n<div class=\"article-meta\">\n<span><i class=\"fa-solid fa-calendar\"></i>Published Jul 28, 2026</span>\n<span><i class=\"fa-solid fa-arrows-rotate\"></i>Updated Jul 28, 2026</span>\n<span><i class=\"fa-solid fa-clock\"></i>9 min read</span>\n</div>\n<div class=\"share-row\">\n<span class=\"label\">Share</span>\n<a aria-label=\"Share on Facebook\" class=\"share-btn\" href=\"#\"><i class=\"fa-brands fa-facebook-f\"></i></a>\n<a aria-label=\"Share on LinkedIn\" class=\"share-btn\" href=\"#\"><i class=\"fa-brands fa-linkedin-in\"></i></a>\n<a aria-label=\"Copy link\" class=\"share-btn\" href=\"#\"><i class=\"fa-solid fa-link\"></i></a>\n</div>\n</div>\n</div>"
+   "html": "<div class=\"author-bar\">\n<div class=\"container\">\n<div class=\"author-info\">\n<div class=\"author-avatar\">AR</div>\n<div class=\"author-details\">\n<p class=\"author-name\">{{global.owner_name}} <i class=\"fa-solid fa-check-circle verified\" title=\"Verified author\"></i></p>\n<p class=\"author-role\">Owner · Operations Lead · NE Ohio tree work</p>\n</div>\n</div>\n<div class=\"article-meta\">\n<span><i class=\"fa-solid fa-calendar\"></i>Published Jul 28, 2026</span>\n<span><i class=\"fa-solid fa-arrows-rotate\"></i>Updated Jul 28, 2026</span>\n<span><i class=\"fa-solid fa-clock\"></i>9 min read</span>\n</div>\n</div>\n</div>"
   },
   {
    "type": "raw",
