@@ -133,7 +133,15 @@ body.pt-home .gbp-map { height: 500px; }
 /* [Photos] Homepage "Two Generations" image was the portrait placeholder;
    point it at the real crew/yard photo instead. (The About/Why portraits now
    use a branded avatar; About/Why + Blog heroes use real photos.) */
-body.pt-home .why-img { background: url("../images/roubic-auburn-township-oh-hero.webp") center/cover no-repeat; }
+/* Homepage "Two Generations" image: use the branded-truck/yard photo so the
+   Auburn crew photo can go back on the HQ city tile (QA5) without duplicating. */
+body.pt-home .why-img { background: url("../images/roubic-about-hero.webp") center/cover no-repeat; }
+
+/* [QA5] City tier grid: incomplete rows (esp. Tier 3) were centered, leaving a
+   gap on the left. Left-align them. */
+body.pt-home .city-grid, body.pt-service-hub .city-grid, body.pt-service-spoke .city-grid {
+  justify-content: flex-start;
+}
 
 /* ==========================================================================
    Design QA round 2 — polish pass (2026-07-31)
