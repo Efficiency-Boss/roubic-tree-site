@@ -186,7 +186,7 @@ body.pt-home .city-grid, body.pt-service-hub .city-grid, body.pt-service-spoke .
 .article-section tbody tr:hover { background: rgba(212,175,55,0.07); }
 @media (max-width: 640px) {
   .article-section table {
-    display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: nowrap;
+    display: table; width: 100%; table-layout: fixed;
   }
 }
 
@@ -284,26 +284,68 @@ body[class*="pt-"] .page-hero .content { margin-left: 0; margin-right: auto; }
    horizontal scroll only as a fallback. */
 @media (max-width: 640px) {
   .article-section table {
-    display: block; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch;
-    font-size: 13px;
+    display: table; width: 100%; table-layout: fixed; font-size: 12px;
   }
   .article-section table td, .article-section table th {
-    white-space: normal; padding: 8px 10px; min-width: 68px;
+    white-space: normal; overflow-wrap: anywhere; padding: 7px 6px;
   }
 }
 
-/* [#1] Mobile menu: keep the logo + close button visible at the top when open
-   (Rhino-style), instead of an empty top bar. */
-body.pt-home .mobile-menu, body[class*="pt-"] .mobile-menu { padding-top: 20px; }
-.mobile-menu-header {
+/* [QA6] Mobile menu rebuilt to match the Rhino Rooter pattern: a dark navy panel
+   that slides in from the right, gold phone bar + white logo + close button
+   pinned at top, uppercase links, gold CTA at the bottom, page dimmed behind. */
+body[class*="pt-"] .mobile-menu {
+  display: block; visibility: hidden;
+  inset: 0 0 0 auto; width: min(86%, 380px);
+  background: var(--navy); color: #fff; padding: 0 0 32px;
+  transform: translateX(100%); transition: transform .28s ease, visibility .28s;
+  box-shadow: none; overflow-y: auto; overscroll-behavior: contain;
+}
+body[class*="pt-"] .mobile-menu.open {
+  visibility: visible; transform: translateX(0);
+  box-shadow: 0 0 0 100vmax rgba(6,12,24,0.55);
+}
+.mobile-menu .mm-phonebar {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  background: var(--gold); color: var(--navy); font-weight: 700; font-size: 15px;
+  padding: 12px 16px; text-decoration: none;
+}
+.mobile-menu .mobile-menu-header {
   display: flex; align-items: center; justify-content: space-between;
-  padding-bottom: 16px; margin-bottom: 8px; border-bottom: 1px solid var(--gray-2);
+  padding: 16px 20px; margin: 0; border-bottom: 1px solid rgba(255,255,255,0.12);
 }
-.mobile-menu-header .mm-logo img { height: 46px; width: auto; display: block; }
+.mobile-menu .mm-logo img { height: 44px; width: auto; display: block; }
 .mobile-menu .mobile-menu-close {
-  position: static; font-size: 26px; color: var(--navy);
-  background: transparent; border: none; cursor: pointer; line-height: 1;
+  position: static !important; color: #fff !important; background: transparent;
+  border: 1px solid rgba(255,255,255,0.35); border-radius: 6px;
+  width: 40px; height: 40px; font-size: 20px; line-height: 1;
+  display: flex; align-items: center; justify-content: center; cursor: pointer; margin: 0;
 }
+.mobile-menu > a,
+.mobile-menu > details > summary {
+  display: block; color: #fff !important; text-transform: uppercase; letter-spacing: 0.05em;
+  font-weight: 700; font-size: 15px; padding: 16px 20px !important; margin: 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.mobile-menu > details > summary { list-style: none; cursor: pointer; }
+.mobile-menu > details > summary::-webkit-details-marker { display: none; }
+.mobile-menu > details > summary::after {
+  content: "\f078"; font-family: "Font Awesome 6 Free"; font-weight: 900;
+  float: right; font-size: 12px; opacity: 0.7;
+}
+.mobile-menu > details[open] > summary::after { content: "\f077"; }
+.mobile-menu details ul {
+  list-style: none; margin: 0; padding: 4px 0 12px; background: rgba(0,0,0,0.2);
+}
+.mobile-menu details ul li a {
+  display: block; color: rgba(255,255,255,0.82) !important; text-transform: none;
+  font-weight: 400; font-size: 14px; padding: 10px 20px 10px 34px !important; border: none !important;
+}
+.mobile-menu .mobile-menu-ctas { padding: 22px 20px 0; }
+.mobile-menu .mobile-menu-ctas .btn { width: 100%; justify-content: center; }
+
+/* [QA6 #3] Decision table: "No" cells were 18px vs "Yes" 14px — make them match. */
+body.pt-service-hub .compare-row .no, body.pt-service-spoke .compare-row .no { font-size: 14px; }
 
 /* [#6] The firewood-quote modal (#ghlModal) is styled per-page-type in the
    canonical CSS, but some page types (e.g. contact) were missing the rule, so

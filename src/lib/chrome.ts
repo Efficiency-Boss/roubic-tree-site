@@ -125,8 +125,9 @@ export const HEADER_CHROME = `<div class="utility-bar">
 </div>
 </header>
 <div class="mobile-menu" id="mobileMenu">
+<a class="mm-phonebar" href="tel:+14402948002"><i class="fa-solid fa-phone"></i> (440) 294-8002</a>
 <div class="mobile-menu-header">
-<a class="mm-logo" href="/"><img alt="Roubic Tree &amp; Landscape LLC" src="/brand_assets/ROUBIC TREE all BLUE.png"/></a>
+<a class="mm-logo" href="/"><img alt="Roubic Tree &amp; Landscape LLC" src="/brand_assets/ROUBIC TREE ALL WHITE.png"/></a>
 <button aria-label="Close menu" class="mobile-menu-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">
 <i class="fa-solid fa-times"></i>
 </button>
@@ -164,7 +165,6 @@ export const HEADER_CHROME = `<div class="utility-bar">
 <a href="/about/">About</a>
 <a href="/contact/">Contact</a>
 <div class="mobile-menu-ctas">
-<a class="btn btn-secondary" href="tel:+14402948002" style="justify-content: center"><i class="fa-solid fa-phone"></i> Call (440) 294-8002</a>
 <a class="btn btn-primary" data-shine="true" href="/contact/" style="justify-content: center"><span>Get a Free Estimate</span></a>
 </div>
 </div>`;
