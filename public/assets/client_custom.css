@@ -389,3 +389,58 @@ body.pt-blog .coming-badge {
 }
 body.pt-blog .post-card, body.pt-blog .featured-card { cursor: default; }
 body.pt-blog .post-card:hover, body.pt-blog .featured-card:hover { transform: none; }
+
+/* ==========================================================================
+   Design QA round 7 — Ammar (2026-08-04)
+   ========================================================================== */
+
+/* [#19] Story image on location-hub + LSP pages. The visible caption was
+   hard-coded "Pepper Pike estate / removal — real Roubic project" and showed
+   on EVERY city page. Kill it; the per-page background-image (set inline in
+   each page's content) now drives a distinct, service-relevant photo. Let the
+   image stretch to fill the row height next to the text column. */
+body.pt-location-hub .story-img::after,
+body.pt-lsp .story-img::after { content: none !important; display: none !important; }
+body.pt-location-hub .story-img,
+body.pt-lsp .story-img {
+  background-size: cover !important; background-position: center !important;
+  height: auto !important; min-height: 460px; align-self: stretch;
+}
+
+/* [#27a] "Table of Contents" is no longer an <h4> (SEO: it was a heading above
+   the H1). Style the replacement .toc-title span like the old heading so the
+   collapsible TOC summary looks unchanged. */
+body.pt-resource .toc .toc-title {
+  font-size: 18px; font-weight: 700; color: var(--navy); margin: 0; line-height: 1.3;
+}
+
+/* [#23] Tier-3 city hubs (Chesterland, Mayfield, South Russell) offer a single
+   service, so the "What Roubic Handles" grid held one card pinned left with a
+   big empty gap. Center the lone card. */
+body.pt-location-hub .services-city-grid:has(> :only-child) {
+  grid-template-columns: minmax(0, 440px); justify-content: center;
+}
+
+/* [#4] Homepage hero had padding:100px 0 + min-height:640px + vertical-center,
+   which on mobile pushed the content far down (large dark gap above the chip).
+   Pull it up on phones. */
+@media (max-width: 767px) {
+  body.pt-home .hero {
+    min-height: auto; align-items: flex-start; padding: 28px 0 44px;
+  }
+}
+
+/* [#18] Storm-damage LSP (and other LSP) .story section: the highlight list and
+   copy were center-aligned on mobile. Align left as requested. */
+@media (max-width: 640px) {
+  body.pt-lsp .story-copy,
+  body.pt-lsp .story-copy .highlights li { text-align: left; }
+  body.pt-lsp .story-copy .highlights li { justify-content: flex-start; }
+}
+
+/* [#27b] Resource guides: move the Table of Contents directly below the hero on
+   mobile (it was rendered after the article body in source order). */
+@media (max-width: 899px) {
+  body.pt-resource .article-grid { display: flex; flex-direction: column; }
+  body.pt-resource .article-grid .toc { order: -1; }
+}
