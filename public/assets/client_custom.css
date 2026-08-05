@@ -296,14 +296,13 @@ body[class*="pt-"] .page-hero .content { margin-left: 0; margin-right: auto; }
    pinned at top, uppercase links, gold CTA at the bottom, page dimmed behind. */
 body[class*="pt-"] .mobile-menu {
   display: block; visibility: hidden;
-  inset: 0 0 0 auto; width: min(86%, 380px);
+  inset: 0; width: 100%;                 /* [Masud] full-screen menu, not an 86% side panel */
   background: var(--navy); color: #fff; padding: 0 0 32px;
   transform: translateX(100%); transition: transform .28s ease, visibility .28s;
   box-shadow: none; overflow-y: auto; overscroll-behavior: contain;
 }
 body[class*="pt-"] .mobile-menu.open {
   visibility: visible; transform: translateX(0);
-  box-shadow: 0 0 0 100vmax rgba(6,12,24,0.55);
 }
 .mobile-menu .mm-phonebar {
   display: flex; align-items: center; justify-content: center; gap: 8px;
@@ -462,4 +461,36 @@ body.pt-location-hub .services-city-grid:has(> :only-child) {
 }
 @media (max-width: 430px) {
   body[class*="pt-"] .header-logo img { height: 38px; }
+}
+
+/* [Masud] About / Why-Choose "portraits" were placeholder tree-logo cards (no real
+   photos of Thomas/Aaron exist). Replace with an elegant gold-monogram treatment
+   so they read as intentional brand elements. The est-seal / glass-badge overlays
+   still sit on top. */
+body.pt-about .portrait-mono,
+body.pt-why-choose-us .portrait-mono {
+  position: relative; z-index: 1; width: 100%; height: 500px; border-radius: 2px;
+  overflow: hidden; display: flex; align-items: center; justify-content: center;
+  background:
+    radial-gradient(120% 80% at 50% 20%, rgba(212,175,55,0.16), transparent 62%),
+    linear-gradient(155deg, #0b1426 0%, #14233f 55%, #1f3d70 100%);
+}
+body.pt-about .portrait-mono::before,
+body.pt-why-choose-us .portrait-mono::before {
+  content: attr(data-initials);
+  font-family: "Playfair Display", Georgia, serif; font-weight: 700;
+  font-size: 172px; line-height: 1; letter-spacing: 6px; margin-top: -32px;
+  background: linear-gradient(135deg, #f0d98a 0%, #c9a227 58%, #a8841c 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+body.pt-about .portrait-mono::after,
+body.pt-why-choose-us .portrait-mono::after {
+  content: ""; position: absolute; inset: 16px; border-radius: 2px;
+  border: 1px solid rgba(212,175,55,0.30); pointer-events: none;
+}
+@media (max-width: 640px) {
+  body.pt-about .portrait-mono,
+  body.pt-why-choose-us .portrait-mono { height: 340px; }
+  body.pt-about .portrait-mono::before,
+  body.pt-why-choose-us .portrait-mono::before { font-size: 118px; margin-top: -24px; }
 }
