@@ -13,7 +13,7 @@ export const HEADER_CHROME = `<div class="utility-bar">
 </div>
 <header class="header">
 <div class="container">
-<a class="header-logo" href="/"><img alt="Roubic Tree &amp; Landscape LLC" src="/brand_assets/ROUBIC TREE all BLUE.png"/></a>
+<a class="header-logo" href="/"><img alt="Roubic Tree &amp; Landscape LLC" src="/brand_assets/ROUBIC TREE BLUE WORDS.png"/></a>
 <nav aria-label="Main navigation" class="nav">
 <div class="nav-item has-mega">
 <a href="/services/">Services</a>
@@ -137,7 +137,7 @@ export const HEADER_CHROME = `<div class="utility-bar">
 <div class="mobile-menu" id="mobileMenu">
 <a class="mm-phonebar" href="tel:+14402948002"><i class="fa-solid fa-phone"></i> (440) 294-8002</a>
 <div class="mobile-menu-header">
-<a class="mm-logo" href="/"><img alt="Roubic Tree &amp; Landscape LLC" src="/brand_assets/ROUBIC TREE ALL WHITE.png"/></a>
+<a class="mm-logo" href="/"><img alt="Roubic Tree &amp; Landscape LLC" src="/brand_assets/ROUBIC TREE WHITE WORDS.png"/></a>
 <button aria-label="Close menu" class="mobile-menu-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">
 <i class="fa-solid fa-times"></i>
 </button>
@@ -183,7 +183,7 @@ export const FOOTER_CHROME = `<footer class="footer">
 <div class="container">
 <div class="footer-top">
 <div class="footer-brand">
-<a href="/" aria-label="Roubic Tree home"><img alt="Roubic Tree &amp; Landscape LLC" src="/brand_assets/ROUBIC TREE ALL GOLD.png"/></a>
+<a href="/" aria-label="Roubic Tree home"><img alt="Roubic Tree &amp; Landscape LLC" src="/brand_assets/ROUBIC TREE GOLD WORDS.png"/></a>
 <p>Family-owned NE Ohio tree service since 1982. Two generations. One Auburn Township yard.</p>
 <div class="footer-social">
 <a aria-label="Google Business Profile" href="https://maps.app.goo.gl/u7v27xJWMZv7subX7" target="_blank" rel="noopener"><i class="fa-brands fa-google"></i></a>
