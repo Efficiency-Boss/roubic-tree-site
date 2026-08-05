@@ -130,7 +130,7 @@ export const HEADER_CHROME = `<div class="utility-bar">
 <div class="header-cta">
 <a class="header-phone" href="tel:+14402948002"><i class="fa-solid fa-phone"></i><span>(440) 294-8002</span></a>
 <a class="btn btn-primary" data-shine="true" href="#quick-quote"><span>Get a Free Estimate</span></a>
-<button class="mobile-toggle" onclick="document.getElementById('mobileMenu').classList.add('open')"><i class="fa-solid fa-bars"></i></button>
+<button class="mobile-toggle" aria-label="Menu" aria-expanded="false"><i class="fa-solid fa-bars"></i><i class="fa-solid fa-xmark"></i></button>
 </div>
 </div>
 </header>

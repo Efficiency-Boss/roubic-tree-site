@@ -296,14 +296,24 @@ body[class*="pt-"] .page-hero .content { margin-left: 0; margin-right: auto; }
    pinned at top, uppercase links, gold CTA at the bottom, page dimmed behind. */
 body[class*="pt-"] .mobile-menu {
   display: block; visibility: hidden;
-  inset: 0; width: 100%;                 /* [Masud] full-screen menu, not an 86% side panel */
-  background: var(--navy); color: #fff; padding: 0 0 32px;
+  inset: 0; width: 100%;
+  /* [Masud v2] menu opens BELOW the sticky header so the logo + CTA + hamburger
+     stay visible (Rhino Rooter style). Header carries a higher z-index and its
+     own solid background, so it renders on top of the menu; pad the menu so its
+     content clears the header. */
+  background: var(--navy); color: #fff; padding: 84px 0 32px; z-index: 9990;
   transform: translateX(100%); transition: transform .28s ease, visibility .28s;
   box-shadow: none; overflow-y: auto; overscroll-behavior: contain;
 }
 body[class*="pt-"] .mobile-menu.open {
   visibility: visible; transform: translateX(0);
 }
+/* keep the header above the open menu, and swap the hamburger to an X */
+body[class*="pt-"] .header { z-index: 10000; }
+body[class*="pt-"] .mobile-menu .mobile-menu-header { display: none; } /* redundant — real header is visible */
+.mobile-toggle .fa-xmark { display: none; }
+.mobile-toggle[aria-expanded="true"] .fa-bars { display: none; }
+.mobile-toggle[aria-expanded="true"] .fa-xmark { display: inline-block; }
 .mobile-menu .mm-phonebar {
   display: flex; align-items: center; justify-content: center; gap: 8px;
   background: var(--gold); color: var(--navy); font-weight: 700; font-size: 15px;
@@ -493,4 +503,24 @@ body.pt-why-choose-us .portrait-mono::after {
   body.pt-why-choose-us .portrait-mono { height: 340px; }
   body.pt-about .portrait-mono::before,
   body.pt-why-choose-us .portrait-mono::before { font-size: 118px; margin-top: -24px; }
+}
+
+/* [Masud] About / Why-Choose portrait cards on mobile: (1) full width — drop the
+   frame's side padding + max-width so the card matches the sections above it;
+   (2) the owner glass-badge stacks BELOW the monogram instead of overlaying it
+   (image on top, name/title/description below). */
+@media (max-width: 640px) {
+  body.pt-about .portrait-frame,
+  body.pt-why-choose-us .portrait-frame {
+    max-width: none; margin: 0; padding: 0; box-shadow: none; background: none;
+  }
+  body.pt-about .portrait-mono,
+  body.pt-why-choose-us .portrait-mono { height: 300px; border-radius: 0; }
+  body.pt-about .glass-badge,
+  body.pt-why-choose-us .glass-badge {
+    position: static; inset: auto; margin: 0; border-radius: 0;
+    background: var(--navy); backdrop-filter: none;
+  }
+  body.pt-about .est-seal,
+  body.pt-why-choose-us .est-seal { bottom: 12px; right: 12px; }
 }
