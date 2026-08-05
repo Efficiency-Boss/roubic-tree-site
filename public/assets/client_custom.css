@@ -524,3 +524,8 @@ body.pt-why-choose-us .portrait-mono::after {
   body.pt-about .est-seal,
   body.pt-why-choose-us .est-seal { bottom: 12px; right: 12px; }
 }
+
+/* [Masud] The header's "Get a Free Estimate" CTA now stays visible while the
+   mobile menu is open, so the menu's own CTA at the bottom (under Contact) is a
+   duplicate — hide it on mobile. */
+body[class*="pt-"] .mobile-menu .mobile-menu-ctas { display: none; }
