@@ -453,3 +453,13 @@ body.pt-location-hub .services-city-grid:has(> :only-child) {
   body.pt-lsp .response-card { text-align: left !important; }
   body.pt-lsp .response-perks li { justify-content: flex-start; text-align: left; }
 }
+
+/* [logo] The written-out wordmark is much wider than the old tree-mark, so at the
+   66px header height it crowds the "Get a Free Estimate" CTA + hamburger on
+   phones. Scale it down on small screens. */
+@media (max-width: 767px) {
+  body[class*="pt-"] .header-logo img { height: 46px; }
+}
+@media (max-width: 430px) {
+  body[class*="pt-"] .header-logo img { height: 38px; }
+}
