@@ -532,3 +532,16 @@ body.pt-why-choose-us .portrait-mono::after {
    mobile menu is open, so the menu's own CTA at the bottom (under Contact) is a
    duplicate — hide it on mobile. */
 body[class*="pt-"] .mobile-menu .mobile-menu-ctas { display: none; }
+
+/* [Nicole] Homepage "Two Generations" photo is the Auburn Township signboard;
+   center/cover was cropping the sign text off. Match the frame to the photo's
+   aspect ratio (1600x912) so cover shows the WHOLE signboard with no crop and no
+   letterbox, and center the (now shorter) image next to the taller text column. */
+body.pt-home .why-img {
+  aspect-ratio: 1600 / 912; height: auto; min-height: 0;
+  background-position: center; background-size: cover;
+}
+body.pt-home .why-grid { align-items: center; }
+@media (max-width: 640px) {
+  body.pt-home .why-img { height: auto; min-height: 0; }
+}
