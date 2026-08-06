@@ -450,8 +450,11 @@ body.pt-location-hub .services-city-grid:has(> :only-child) {
 /* [#27b] Resource guides: move the Table of Contents directly below the hero on
    mobile (it was rendered after the article body in source order). */
 @media (max-width: 899px) {
-  body.pt-resource .article-grid { display: flex; flex-direction: column; }
-  body.pt-resource .article-grid .toc { order: -1; }
+  /* align-items:stretch so the TOC box fills the full width (canonical
+     .article-grid sets align-items:flex-start, which shrank it to content
+     width — that was Masud's "too much right-side padding"). */
+  body.pt-resource .article-grid { display: flex; flex-direction: column; align-items: stretch; }
+  body.pt-resource .article-grid .toc { order: -1; width: 100%; }
 }
 
 /* [#18 v2] Storm LSP dark "response" card. Canonical sets text-align:center at

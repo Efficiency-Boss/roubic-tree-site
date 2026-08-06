@@ -277,4 +277,23 @@ export const FOOTER_CHROME = `<footer class="footer">
     });
   });
 })();
+</script>
+<script>
+/* [Masud] The LeadConnector chat bubble renders in a shadow DOM fixed at
+   bottom:20px, overlapping the mobile sticky bar's "Get Estimate" button. Lift
+   it above the ~72px .mobilebar on mobile by injecting a style into the widget's
+   (open) shadow root once it hydrates. */
+(function(){
+  function bump(){
+    var host=document.querySelector('chat-widget');
+    if(!host||!host.shadowRoot) return false;
+    if(host.shadowRoot.getElementById('eb-chat-pos')) return true;
+    var st=document.createElement('style');
+    st.id='eb-chat-pos';
+    st.textContent='@media (max-width:767px){#lc_text-widget,#lc_text-widget--btn{bottom:88px !important}}';
+    host.shadowRoot.appendChild(st);
+    return true;
+  }
+  if(!bump()){ var n=0, iv=setInterval(function(){ if(bump()||++n>40) clearInterval(iv); },250); }
+})();
 </script>`;
