@@ -2,7 +2,9 @@ backend:
   name: github
   repo: Efficiency-Boss/roubic-tree-site
   branch: main
-  # Production OAuth (shared Cloudflare Worker) is wired in Skill 8; see eb-site-template/INTEGRATIONS.md.
+  # Production OAuth via the shared EB sveltia-cms-auth Cloudflare Worker (Skill 8).
+  # Add roubic-tree-site.netlify.app (and the custom domain at cutover) to the worker's ALLOWED_DOMAINS.
+  base_url: https://sveltia-cms-auth.ugljesa-s-djordjevic.workers.dev
 
 # Uploaded images keep their EXACT filename — slots resolve by name. Do NOT enable
 # raster_image transformation (it renames uploads to .webp). Cap matches the Sveltia upload limit.
