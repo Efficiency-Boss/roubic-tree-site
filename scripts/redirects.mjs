@@ -11,6 +11,10 @@ if (!existsSync(dist)) { console.error('dist/ missing.'); process.exit(1); }
 const fails = [];
 for (const r of rows) {
   if (String(r.status).startsWith('3')) {
+    // A `__` in a redirect TARGET means the LSP was routed off its flat filename
+    // instead of its nested canonicalPath — every old URL then takes a hop to a
+    // wrong address. The flat form names files, never URLs (skill 1 §1 / skill 7).
+    if (r.to.includes('__')) fails.push(`${r.from} -> ${r.to} (target contains '__' — wrong URL form)`);
     const target = r.to.replace(/^\/+|\/+$/g, '');
     const ok = target === '' ? existsSync(join(dist, 'index.html'))
                              : existsSync(join(dist, target, 'index.html')) || existsSync(join(dist, target));

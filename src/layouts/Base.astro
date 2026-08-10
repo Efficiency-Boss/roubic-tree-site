@@ -14,7 +14,7 @@ export interface SeoProps {
 interface Props { seo: SeoProps; bodyClass: string; jsonld?: string[]; activeNav?: string | null; }
 const { seo, bodyClass, jsonld = [], activeNav = null } = Astro.props;
 
-const site = Astro.site ?? new URL('https://roubictree.com');
+const site = Astro.site ?? new URL('https://roubictreeservice.com');
 const canonical = new URL(seo.canonicalPath, site).href;
 const ogImage = seo.ogImage ? new URL(seo.ogImage, site).href : undefined;
 

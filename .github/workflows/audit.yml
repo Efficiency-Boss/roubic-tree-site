@@ -24,3 +24,24 @@ jobs:
         run: node scripts/audit.mjs
       - name: Redirect walk
         run: node scripts/redirects.mjs
+      # Post-deploy IndexNow ping — production (default-branch push) only; never on PRs.
+      # No-ops until an IndexNow key is configured; best-effort, never blocks.
+      - name: IndexNow ping
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
+        run: node scripts/indexnow-ping.mjs
+      # MANDATORY build-failure alerting (Skill 8 §8). Add SLACK_WEBHOOK as a repo
+      # secret; no-ops with a log line if the secret is absent.
+      - name: Slack alert on failure
+        if: failure()
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        run: |
+          if [ -n "$SLACK_WEBHOOK" ]; then
+            curl -sf -X POST -H 'Content-type: application/json' \
+              --data "{\"text\":\":rotating_light: *audit failed* — ${{ github.repository }} on ${{ github.ref_name }} (${{ github.event_name }}). Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\"}" \
+              "$SLACK_WEBHOOK" || echo "Slack post failed (non-blocking)."
+          else
+            echo "SLACK_WEBHOOK not set — skipping Slack alert."
+          fi
