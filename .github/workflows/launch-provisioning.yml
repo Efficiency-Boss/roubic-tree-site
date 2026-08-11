@@ -1,0 +1,40 @@
+name: Launch Provisioning
+on:
+  workflow_dispatch:
+    inputs:
+      domain:
+        description: "Live domain (no https://), e.g. rhinorooter.net"
+        required: true
+      ga4_account:
+        description: "Optional: existing GA4 account (accounts/XXXX) to CREATE the property in. Empty = EB Clients umbrella."
+        required: false
+      ga4_property_id:
+        description: "Optional: EXISTING GA4 property ID (migrations). If set, skips property creation."
+        required: false
+
+jobs:
+  fire-webhook:
+    runs-on: ubuntu-latest
+    steps:
+      - name: POST to n8n provisioning webhook
+        # Inputs are passed via env and assembled with jq rather than
+        # interpolated into the script, so quotes/backticks in an input can't
+        # break the shell or the JSON. Payload fields match the agreed spec.
+        env:
+          WEBHOOK_URL: ${{ secrets.EB_PROVISIONING_WEBHOOK_URL }}
+          CLIENT_SLUG: ${{ github.event.repository.name }}
+          DOMAIN: ${{ inputs.domain }}
+          GA4_ACCOUNT: ${{ inputs.ga4_account }}
+          GA4_PROPERTY_ID: ${{ inputs.ga4_property_id }}
+        run: |
+          payload=$(jq -n \
+            --arg client_slug "$CLIENT_SLUG" \
+            --arg domain "$DOMAIN" \
+            --arg sitemap_url "https://${DOMAIN}/sitemap-index.xml" \
+            --arg ga4_account "$GA4_ACCOUNT" \
+            --arg ga4_property_id "$GA4_PROPERTY_ID" \
+            --arg launch_date "$(date +%F)" \
+            '$ARGS.named')
+          curl -sS --fail-with-body -X POST "$WEBHOOK_URL" \
+            -H "Content-Type: application/json" \
+            -d "$payload"
