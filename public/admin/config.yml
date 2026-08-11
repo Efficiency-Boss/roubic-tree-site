@@ -58,16 +58,16 @@ _block_types: &block_types
           - { label: "Icon (fa class)", name: icon, widget: string, required: false }
 
 _seo_fields: &seo_fields
-  - label: "SEO"
-    name: seo
-    widget: object
-    fields:
-      - { label: "Title", name: title, widget: string }
-      - { label: "Meta description", name: description, widget: text }
-      - { label: "Canonical path", name: canonicalPath, widget: string, hint: "e.g. /pepper-pike-oh/tree-removal/" }
-      - { label: "OG type", name: ogType, widget: string, default: "website" }
-      - { label: "No-index", name: noindex, widget: boolean, default: false }
-      - { label: "OG image", name: ogImage, widget: string, required: false }
+  label: "SEO"
+  name: seo
+  widget: object
+  fields:
+    - { label: "Title", name: title, widget: string }
+    - { label: "Meta description", name: description, widget: text }
+    - { label: "Canonical path", name: canonicalPath, widget: string, hint: "e.g. /pepper-pike-oh/tree-removal/" }
+    - { label: "OG type", name: ogType, widget: string, default: "website" }
+    - { label: "No-index", name: noindex, widget: boolean, default: false }
+    - { label: "OG image", name: ogImage, widget: string, required: false }
 
 collections:
   - name: site_settings
