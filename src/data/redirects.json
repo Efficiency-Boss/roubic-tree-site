@@ -1,4 +1,247 @@
 [
-  { "from": "/about-us/", "to": "/about/", "status": 301 },
-  { "from": "/resources/tree-service-cost-guide/", "to": "/tree-service-cost-guide/", "status": 301 }
+ {
+  "from": "/about-us/",
+  "to": "/about/",
+  "status": 301
+ },
+ {
+  "from": "/resources/tree-service-cost-guide/",
+  "to": "/tree-service-cost-guide/",
+  "status": 301
+ },
+ {
+  "from": "/arborist-cleveland-ohio-2/",
+  "to": "/about/",
+  "status": 301
+ },
+ {
+  "from": "/ash-tree-disease-management/",
+  "to": "/services/tree-trimming-pruning/ash-tree-disease-management/",
+  "status": 301
+ },
+ {
+  "from": "/aurora-ohio/",
+  "to": "/service-areas/",
+  "status": 301
+ },
+ {
+  "from": "/birch-tree-care/",
+  "to": "/services/tree-trimming-pruning/birch-tree-care/",
+  "status": 301
+ },
+ {
+  "from": "/category/stump-grinding/",
+  "to": "/blog/",
+  "status": 301
+ },
+ {
+  "from": "/category/tree-removal/",
+  "to": "/blog/",
+  "status": 301
+ },
+ {
+  "from": "/category/trimming-pruning/",
+  "to": "/blog/",
+  "status": 301
+ },
+ {
+  "from": "/category/uncategorized/",
+  "to": "/blog/",
+  "status": 301
+ },
+ {
+  "from": "/cedar-tree-health-maintenance/",
+  "to": "/services/tree-trimming-pruning/cedar-tree-health-maintenance/",
+  "status": 301
+ },
+ {
+  "from": "/cherry-tree-pruning/",
+  "to": "/services/tree-trimming-pruning/cherry-tree-pruning/",
+  "status": 301
+ },
+ {
+  "from": "/commercial-tree-service-cleveland-ohio/",
+  "to": "/services/tree-removal/commercial-tree-removal/",
+  "status": 301
+ },
+ {
+  "from": "/cuyahoga-county/",
+  "to": "/service-areas/",
+  "status": 301
+ },
+ {
+  "from": "/cuyahoga-county/beachwood-ohio/",
+  "to": "/beachwood-oh/",
+  "status": 301
+ },
+ {
+  "from": "/cuyahoga-county/gates-mills-ohio/",
+  "to": "/gates-mills-oh/",
+  "status": 301
+ },
+ {
+  "from": "/cuyahoga-county/mayfield-ohio/",
+  "to": "/mayfield-oh/",
+  "status": 301
+ },
+ {
+  "from": "/cuyahoga-county/moreland-hills-ohio/",
+  "to": "/moreland-hills-oh/",
+  "status": 301
+ },
+ {
+  "from": "/cuyahoga-county/orange-ohio/",
+  "to": "/orange-oh/",
+  "status": 301
+ },
+ {
+  "from": "/cuyahoga-county/pepper-pike-ohio/",
+  "to": "/pepper-pike-oh/",
+  "status": 301
+ },
+ {
+  "from": "/cuyahoga-county/solon-ohio/",
+  "to": "/solon-oh/",
+  "status": 301
+ },
+ {
+  "from": "/elm-tree-preservation/",
+  "to": "/services/tree-trimming-pruning/elm-tree-preservation/",
+  "status": 301
+ },
+ {
+  "from": "/evidence/",
+  "to": "/about/",
+  "status": 301
+ },
+ {
+  "from": "/evidence/complete-maple-tree-removal-and-landscape-restoration-pepper-pike/",
+  "to": "/pepper-pike-oh/",
+  "status": 301
+ },
+ {
+  "from": "/evidence/land-clearing-for-new-home-construction-chagrin-falls/",
+  "to": "/chagrin-falls-oh/land-clearing/",
+  "status": 301
+ },
+ {
+  "from": "/evidence/neighbor-tree-trimming-roof-deck-protection-cleveland/",
+  "to": "/services/tree-trimming-pruning/",
+  "status": 301
+ },
+ {
+  "from": "/evidence/reviews-testimonials/",
+  "to": "/about/",
+  "status": 301
+ },
+ {
+  "from": "/firewood-delivery-cleveland/",
+  "to": "/services/firewood-delivery/",
+  "status": 301
+ },
+ {
+  "from": "/fruit-tree-pruning-maintenance/",
+  "to": "/services/tree-trimming-pruning/fruit-tree-pruning-maintenance/",
+  "status": 301
+ },
+ {
+  "from": "/geauga-county/",
+  "to": "/service-areas/",
+  "status": 301
+ },
+ {
+  "from": "/geauga-county/auburn-township-ohio/",
+  "to": "/auburn-township-oh/",
+  "status": 301
+ },
+ {
+  "from": "/geauga-county/bainbridge-township-ohio/",
+  "to": "/bainbridge-township-oh/",
+  "status": 301
+ },
+ {
+  "from": "/geauga-county/chagrin-falls-ohio/",
+  "to": "/chagrin-falls-oh/",
+  "status": 301
+ },
+ {
+  "from": "/geauga-county/chesterland-ohio/",
+  "to": "/chesterland-oh/",
+  "status": 301
+ },
+ {
+  "from": "/geauga-county/mayfield-ohio/",
+  "to": "/mayfield-oh/",
+  "status": 301
+ },
+ {
+  "from": "/geauga-county/south-russell-ohio/",
+  "to": "/south-russell-oh/",
+  "status": 301
+ },
+ {
+  "from": "/lake-county/willoughby-ohio/",
+  "to": "/service-areas/",
+  "status": 301
+ },
+ {
+  "from": "/maple-tree-maintenance/",
+  "to": "/services/tree-trimming-pruning/maple-tree-maintenance/",
+  "status": 301
+ },
+ {
+  "from": "/oak-tree-care/",
+  "to": "/services/tree-trimming-pruning/oak-tree-care/",
+  "status": 301
+ },
+ {
+  "from": "/pine-tree-trimming/",
+  "to": "/services/tree-trimming-pruning/pine-tree-trimming/",
+  "status": 301
+ },
+ {
+  "from": "/snow-plowing-cleveland-ohio/",
+  "to": "/",
+  "status": 301
+ },
+ {
+  "from": "/tree-removal-cost-cleveland-ohio/",
+  "to": "/tree-service-cost-guide/",
+  "status": 301
+ },
+ {
+  "from": "/tree-service-near-me/",
+  "to": "/services/",
+  "status": 301
+ },
+ {
+  "from": "/tree-service/",
+  "to": "/services/",
+  "status": 301
+ },
+ {
+  "from": "/tree-service/land-clearing/",
+  "to": "/services/land-clearing/",
+  "status": 301
+ },
+ {
+  "from": "/tree-service/stump-grinding/",
+  "to": "/services/stump-grinding/",
+  "status": 301
+ },
+ {
+  "from": "/tree-service/tree-removal/",
+  "to": "/services/tree-removal/",
+  "status": 301
+ },
+ {
+  "from": "/tree-service/tree-trimming/",
+  "to": "/services/tree-trimming-pruning/",
+  "status": 301
+ },
+ {
+  "from": "/willow-tree-care/",
+  "to": "/services/tree-trimming-pruning/willow-tree-care/",
+  "status": 301
+ }
 ]
