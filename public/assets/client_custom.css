@@ -137,11 +137,9 @@ body.pt-home .gbp-map { height: 500px; }
    Auburn crew photo can go back on the HQ city tile (QA5) without duplicating. */
 body.pt-home .why-img { background: url("../images/roubic-about-hero.webp") center/cover no-repeat; }
 
-/* [QA5] City grid: incomplete rows (esp. the last one) were centered, leaving a
-   gap on the left. Left-align them. */
-body.pt-home .city-grid, body.pt-service-hub .city-grid, body.pt-service-spoke .city-grid {
-  justify-content: flex-start;
-}
+/* [QA5] City grid rows were left-aligned so each row lined up under its tier
+   label. The tier labels are gone, so the orphan last row now centers with the
+   rest of the grid (global.css already sets justify-content: center). */
 
 /* ==========================================================================
    Design QA round 2 — polish pass (2026-07-31)
