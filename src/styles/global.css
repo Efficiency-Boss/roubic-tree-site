@@ -935,7 +935,7 @@ body.pt-home .areas-head p {
   color: var(--text-muted); max-width: 62ch; margin: 0 auto
 }
 body.pt-home .tier-block {
-  margin-bottom: 40px
+  margin-bottom: 12px
 }
 body.pt-home .tier-label {
   display: inline-flex; align-items: center; gap: 10px;
@@ -3199,7 +3199,7 @@ body.pt-service-areas .cities-head p {
   color: var(--text-muted); max-width: 62ch; margin: 0 auto
 }
 body.pt-service-areas .tier-section {
-  margin-bottom: 48px
+  margin-bottom: 16px
 }
 body.pt-service-areas .tier-header {
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
@@ -3230,21 +3230,24 @@ body.pt-service-areas .tier-header p {
   margin: 0; color: var(--text-muted); font-size: 14px
 }
 body.pt-service-areas .city-cards {
-  display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px
+  display: flex; flex-wrap: wrap; gap: 16px; justify-content: center
+}
+body.pt-service-areas .city-cards > .city-card {
+  flex: 0 1 calc((100% - 64px) / 5); min-width: 0
 }
 @media (max-width: 1099px) {
-body.pt-service-areas .city-cards {
-  grid-template-columns: repeat(3, 1fr)
+body.pt-service-areas .city-cards > .city-card {
+  flex-basis: calc((100% - 32px) / 3)
 }
 }
 @media (max-width: 699px) {
-body.pt-service-areas .city-cards {
-  grid-template-columns: repeat(2, 1fr)
+body.pt-service-areas .city-cards > .city-card {
+  flex-basis: calc((100% - 16px) / 2)
 }
 }
 @media (max-width: 449px) {
-body.pt-service-areas .city-cards {
-  grid-template-columns: 1fr
+body.pt-service-areas .city-cards > .city-card {
+  flex-basis: 100%
 }
 }
 body.pt-service-areas .city-card {
@@ -6588,7 +6591,7 @@ body.pt-service-hub .areas-head p {
   color: var(--text-muted); max-width: 62ch; margin: 0 auto
 }
 body.pt-service-hub .tier-block {
-  margin-bottom: 40px
+  margin-bottom: 12px
 }
 body.pt-service-hub .tier-label {
   display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--white); background: var(--royal-blue); padding: 6px 14px; border-radius: 20px; margin-bottom: 16px
@@ -7439,7 +7442,7 @@ body.pt-service-spoke .areas-head p {
   color: var(--text-muted); max-width: 60ch; margin: 0 auto
 }
 body.pt-service-spoke .tier-block {
-  margin-bottom: 32px
+  margin-bottom: 12px
 }
 body.pt-service-spoke .tier-label {
   display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--white); background: var(--royal-blue); padding: 6px 14px; border-radius: 20px; margin-bottom: 14px

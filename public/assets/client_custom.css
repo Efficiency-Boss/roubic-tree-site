@@ -137,11 +137,9 @@ body.pt-home .gbp-map { height: 500px; }
    Auburn crew photo can go back on the HQ city tile (QA5) without duplicating. */
 body.pt-home .why-img { background: url("../images/roubic-about-hero.webp") center/cover no-repeat; }
 
-/* [QA5] City tier grid: incomplete rows (esp. Tier 3) were centered, leaving a
-   gap on the left. Left-align them. */
-body.pt-home .city-grid, body.pt-service-hub .city-grid, body.pt-service-spoke .city-grid {
-  justify-content: flex-start;
-}
+/* [QA5] City grid rows were left-aligned so each row lined up under its tier
+   label. The tier labels are gone, so the orphan last row now centers with the
+   rest of the grid (global.css already sets justify-content: center). */
 
 /* ==========================================================================
    Design QA round 2 — polish pass (2026-07-31)
@@ -423,7 +421,7 @@ body.pt-resource .toc .toc-title {
   font-size: 18px; font-weight: 700; color: var(--navy); margin: 0; line-height: 1.3;
 }
 
-/* [#23] Tier-3 city hubs (Chesterland, Mayfield, South Russell) offer a single
+/* [#23] Outer-radius city hubs (Chesterland, Mayfield, South Russell) offer a single
    service, so the "What Roubic Handles" grid held one card pinned left with a
    big empty gap. Center the lone card. */
 body.pt-location-hub .services-city-grid:has(> :only-child) {
@@ -559,7 +557,7 @@ body.pt-service-areas .radius-map-badge {
   }
 }
 
-/* [Ammar QA8] Related-services grid is repeat(5,1fr); on Tier-2/3 city pages with
+/* [Ammar QA8] Related-services grid is repeat(5,1fr); on outer-radius city pages with
    only 2–3 sibling services the cards sat left with empty columns. Center them. */
 body.pt-lsp .related-grid:has(> :last-child:nth-child(2)) {
   grid-template-columns: repeat(2, minmax(0, 260px)); justify-content: center;
