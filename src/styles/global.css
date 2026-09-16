@@ -3230,21 +3230,24 @@ body.pt-service-areas .tier-header p {
   margin: 0; color: var(--text-muted); font-size: 14px
 }
 body.pt-service-areas .city-cards {
-  display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px
+  display: flex; flex-wrap: wrap; gap: 16px; justify-content: center
+}
+body.pt-service-areas .city-cards > .city-card {
+  flex: 0 1 calc((100% - 64px) / 5); min-width: 0
 }
 @media (max-width: 1099px) {
-body.pt-service-areas .city-cards {
-  grid-template-columns: repeat(3, 1fr)
+body.pt-service-areas .city-cards > .city-card {
+  flex-basis: calc((100% - 32px) / 3)
 }
 }
 @media (max-width: 699px) {
-body.pt-service-areas .city-cards {
-  grid-template-columns: repeat(2, 1fr)
+body.pt-service-areas .city-cards > .city-card {
+  flex-basis: calc((100% - 16px) / 2)
 }
 }
 @media (max-width: 449px) {
-body.pt-service-areas .city-cards {
-  grid-template-columns: 1fr
+body.pt-service-areas .city-cards > .city-card {
+  flex-basis: 100%
 }
 }
 body.pt-service-areas .city-card {
