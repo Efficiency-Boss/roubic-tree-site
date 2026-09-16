@@ -69,7 +69,6 @@ export const HEADER_CHROME = `<div class="utility-bar">
 <div class="mega" role="menu">
 <div class="mega-cols">
 <div class="mega-col">
-<div class="col-head">Tier 1 — Priority Response</div>
 <ul>
 <li><a href="/auburn-township-oh/">Auburn Township (HQ)</a></li>
 <li><a href="/pepper-pike-oh/">Pepper Pike</a></li>
@@ -79,7 +78,6 @@ export const HEADER_CHROME = `<div class="utility-bar">
 </ul>
 </div>
 <div class="mega-col">
-<div class="col-head">Tier 2 — 2-day</div>
 <ul>
 <li><a href="/gates-mills-oh/">Gates Mills</a></li>
 <li><a href="/beachwood-oh/">Beachwood</a></li>
@@ -89,7 +87,6 @@ export const HEADER_CHROME = `<div class="utility-bar">
 </ul>
 </div>
 <div class="mega-col">
-<div class="col-head">Tier 3</div>
 <ul>
 <li><a href="/chesterland-oh/">Chesterland</a></li>
 <li><a href="/mayfield-oh/">Mayfield</a></li>

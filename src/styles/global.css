@@ -935,7 +935,7 @@ body.pt-home .areas-head p {
   color: var(--text-muted); max-width: 62ch; margin: 0 auto
 }
 body.pt-home .tier-block {
-  margin-bottom: 40px
+  margin-bottom: 12px
 }
 body.pt-home .tier-label {
   display: inline-flex; align-items: center; gap: 10px;
@@ -3199,7 +3199,7 @@ body.pt-service-areas .cities-head p {
   color: var(--text-muted); max-width: 62ch; margin: 0 auto
 }
 body.pt-service-areas .tier-section {
-  margin-bottom: 48px
+  margin-bottom: 16px
 }
 body.pt-service-areas .tier-header {
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
@@ -6588,7 +6588,7 @@ body.pt-service-hub .areas-head p {
   color: var(--text-muted); max-width: 62ch; margin: 0 auto
 }
 body.pt-service-hub .tier-block {
-  margin-bottom: 40px
+  margin-bottom: 12px
 }
 body.pt-service-hub .tier-label {
   display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--white); background: var(--royal-blue); padding: 6px 14px; border-radius: 20px; margin-bottom: 16px
@@ -7439,7 +7439,7 @@ body.pt-service-spoke .areas-head p {
   color: var(--text-muted); max-width: 60ch; margin: 0 auto
 }
 body.pt-service-spoke .tier-block {
-  margin-bottom: 32px
+  margin-bottom: 12px
 }
 body.pt-service-spoke .tier-label {
   display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--white); background: var(--royal-blue); padding: 6px 14px; border-radius: 20px; margin-bottom: 14px
